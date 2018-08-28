@@ -129,16 +129,18 @@
             <a href="http://hidden.domain:50080/#5a7d9c54fc7ce622fb0f30ae?10068" ,="" target="_blank">Internal Link</a> |
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=69">Edit</a>
-            <br><br>
-            <h4>Comment #5 on issue ## by bugdroid1@chromium.org: A memory leak in handler-outside.cc:158<br>
+            <!--<br><br>-->
+            <blockquote>
+            Comment #5 on issue ## by bugdroid1@chromium.org: A memory leak in handler-outside.cc:158<br>
                 <p>The following revision refers to this bug:<br>
                 <p>commit hidden-for-review<br>
                 Date: Wed Feb 21 00:15:19 2018</p>
                 <p>[wasm] [trap handler] do not leak memory on failure path</p>
                 <p>There were two failure paths where the CodeProtectionInfo object would not be<br>
                 freed. This adds a free() on those paths to prevent a memory leak.</p>
-
+            </blockquote>
             <br><br>
+
         </div>
         <br clear="all"><br>
     </li>
@@ -174,12 +176,14 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=79">Edit</a>
             <br><br>
+            <blockquote>
             <h4>Actual results:</h4>
 <p>File: dom/media/encoder/VP8TrackEncoder.cpp:254</p>
 <p>videoData allocated on line 279 is not freed when the function returns on line 286/293/300/306. Since videodata is considered a big data, it may cause severe memory leaks.</p>
 <p>I've uploaded a screenshot with source code and comments for a better description.</p>
 
             <br><br>
+                </blockquote>
         </div>
         <br clear="all"><br>
     </li>
@@ -196,12 +200,13 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=80">Edit</a>
             <br><br>
-            <p>Actual results:</p>
+            <blockquote><p>Actual results:</p>
 <p>File: media/libvpx/libvpx/vp8/vp8_cx_iface.c:594</p>
 <p>The memory shared_mem_loc allocated on line 587 is leaked when the program takes the true branch on line 594. It is a rare case, but better fix it.</p>
 <p>I've uploaded a screenshot with source code and comments for a better description.</p>
 
             <br><br>
+            </blockquote>>
         </div>
         <br clear="all"><br>
     </li>
@@ -218,11 +223,10 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=81">Edit</a>
             <br><br>
-            <p>Actual results:</p>
+            <blockquote><p>Actual results:</p>
 <p>File mozilla-unified/media/mtransport/nr_timer.cpp:216</p>
 <p>The allocated variable callback on line 210 is leaked when the program returns on line 217.</p>
-<p>I've uploaded a screenshot with source code and comments for a better description.</p>
-
+                <p>I've uploaded a screenshot with source code and comments for a better description.</p></blockquote>>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -240,10 +244,11 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=82">Edit</a>
             <br><br>
+            <blockquote>
             <p>Actual results:</p>
 <p>The memory allocated by strdup(appEnv) on line 179 is never freed in the program.</p>
 <p>File: browser/app/nsBrowserApp.cpp:179</p>
-
+            </blockquote>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -261,12 +266,13 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=83">Edit</a>
             <br><br>
+            <blockquote>
             <p>Actual results:</p>
 <p>"adapter" allocated on line 603 is leaked when mGMPLoader-&gt;load returns false on line 606.</p>
 <p>File: dom/media/gmp/GMPChild.cpp:555</p>
 <p>Expected results:</p>
 <p>delete adapter before exiting.</p>
-
+            </blockquote>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -284,11 +290,12 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=84">Edit</a>
             <br><br>
+            <blockquote>
             <p>Actual results:</p>
 <p>File mozilla-unified/media/mtransport/nr_timer.cpp:216</p>
 <p>The allocated variable callback on line 210 is leaked when the program returns on line 217.</p>
 <p>I've uploaded a screenshot with source code and comments for a better description.</p>
-
+            </blockquote>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -308,9 +315,10 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=73">Edit</a>
             <br><br>
+            <blockquote>
             <p>1/4 Comment: Closes #17033, #17032, #17031, thanks @fangang190</p>
 <p>Im not sure about right way to fix for #17030, cuz im not an expert in android apk, and calling zipClose(unaligned_apk, NULL); before return may cause errors, so anybody with free time and knowledge could fix it instead</p>
-
+            </blockquote>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -328,10 +336,12 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=75">Edit</a>
             <br><br>
+            <blockquote>
             <p>3/4 Comment: Closes #17033, #17032, #17031, thanks @fangang190</p>
 <p>Im not sure about right way to fix for #17030, cuz im not an expert in android apk, and calling zipClose(unaligned_apk, NULL); before return may cause errors, so anybody with free time and knowledge could fix it instead</p>
 
             <br><br>
+                </blockquote>
         </div>
         <br clear="all"><br>
     </li>
@@ -348,9 +358,10 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=76">Edit</a>
             <br><br>
+            <blockquote>
             <p>4/4 Comment: Closes #17033, #17032, #17031, thanks @fangang190</p>
 <p>Im not sure about right way to fix for #17030, cuz im not an expert in android apk, and calling zipClose(unaligned_apk, NULL); before return may cause errors, so anybody with free time and knowledge could fix it instead</p>
-
+            </blockquote>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -368,9 +379,10 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=74">Edit</a>
             <br><br>
+            <blockquote>
             <p>2/4 Comment: Closes #17033, #17032, #17031, thanks @fangang190</p>
 <p>Im not sure about right way to fix for #17030, cuz im not an expert in android apk, and calling zipClose(unaligned_apk, NULL); before return may cause errors, so anybody with free time and knowledge could fix it instead</p>
-
+            </blockquote>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -449,11 +461,13 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=78">Edit</a>
             <br><br>
+            <blockquote>
             <p>There is a potential memory leak defect in mysql-server-mysql-5.5.51/cmd-line-utils/libedit/np/vis.c:436.</p>
 <p>The memory allocated on line 420 is assigned to variable nextra. It is not freed when this function returns to its caller on line 436.</p>
 <p>It is freed on line 439, which implies the developer award the necessity of freeing this memory. The leak on line 436 might be a mistake.</p>
 <p>This report is similar to <a href="https://bugs.mysql.com/bug.php?id=89797&amp;thanks=4">https://bugs.mysql.com/bug.php?id=89797&amp;thanks=4</a>.</p>
 
+            </blockquote>>
             <br><br>
         </div>
         <br clear="all"><br>
@@ -492,10 +506,11 @@
             <a href="https://smokeml.github.io/reviewnote" ,="" target="_blank">External Link</a> |
             <a href="http://hidden.domain:40085/edit?id=86">Edit</a>
             <br><br>
-            <p>Hi, we find a memory leak bug in ssl/s3_lib.c 4554 (4606 in current version).<br>
+            <blockquote>
+            <p>We find a memory leak bug in ssl/s3_lib.c 4554 (4606 in current version).<br>
 This bug happens when the program taking true branch at line 4569 and goto the err label.</p>
 <p>There is no free operation in the err section.</p>
-
+            </blockquote>
             <br><br>
         </div>
         <br clear="all"><br>
