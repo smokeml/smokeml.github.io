@@ -14,7 +14,7 @@ We use their free version for academic use [LINK](https://www.sourcebrella.com/o
 
 The method is to convert all bug reports (SMOKE, Saber, CSA, INFER) to Pinpoint's JSON format and upload them to the server. 
 
-The address is [SMOKE/Saber/CSA/Pinpoint/Infer Reports](http://18.237.84.207:40080/online_report)
+The address is [SMOKE/Saber/CSA/Pinpoint/Infer Reports](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report)
 
 Username/pass :  testtest/testtest 
 
@@ -40,8 +40,8 @@ Reports are merged if they share the same start points.
 ![Two Stage Data](/assets/images/twostage_data.png)
 
 ```wrap
-! We have constructed a graphic data structure for both the pointer 
-analysis and the path path-condition collection. 
+! We have constructed a graphic data structure (similar to the SEG used in Pinpoint paper) for both the pointer 
+analysis and the path-condition collection. 
 
 However, when generating this table, we included the time of graph 
 construction in the 2nd phase, which is inaccurate. 
@@ -55,8 +55,3 @@ We will make it more evident in the revised version.
 
 *********************************************
 
-
-## Detailed report classification
-
-We have an app to visualize the bug reports, which will be revealed after the review process.  
-![Quality Data](/assets/images/quality_data.png)
