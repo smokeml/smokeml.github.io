@@ -5,6 +5,42 @@ permalink: /data/
 ---
 
 
+
+
+## Time & No of Paths distribution for two phases
+We made a mistake when calculating the time-distribution for the 1st and 2nd stage. 
+ 
+```wrap
+! We have constructed a graphic data structure (a symbolic Control/data
+dependence graph (G)) for both the points-to analysis and the 
+path-condition collection. 
+
+However, we included the time cost of the G construction in the 2nd phase,
+which is incorrect since we should not count the time cost on "solving".  
+
+This mistake results in an abnormal data of analyzing **Caffe**: even though it 
+has no memory leak candidate, the analysis still spent 29s on the "2nd Phase". 
+
+Here is the new table after we correcting this error. We will use this 
+table in the revised version.  We also include the time cost of G construction
+ for your reference. 
+```
+![Two Stage Data2](/assets/images/twostage_new_data.png)
+
+
+The original table is:
+
+![Two Stage Data](/assets/images/twostage_data.png)
+
+
+
+*********************************************
+## Artifact Evaluation
+
+The package for artifact evaluation will be available after the review process. 
+[Package Link](/install)
+
+
 ## Memory Leak Reports
 
 Thanks to [Github Educate program](https://www.awseducate.com/), we have set up an online report system to host the leak reports together with our manual classification. 
@@ -34,27 +70,3 @@ Note: When collecting the statistics information, we use the default "Cluster" f
 
 Reports are merged if they share the same start points. 
 
-
-
-## Time & No of Paths distribution for two phases
-![Two Stage Data](/assets/images/twostage_data.png)
-
-```wrap
-! We have constructed a graphic data structure (similar to the SEG used in Pinpoint paper) for both the pointer 
-analysis and the path-condition collection. 
-
-However, when generating this table, we included the time of graph 
-construction in the 2nd phase, which is inaccurate. 
-
-This leads to an abnormal data for **Caffe** that even though it 
-has no memory leak candidate, the analysis still spent 29s on the 
-"2nd Phase". 
-
-We will make it more evident in the revised version. 
-```
-
-*********************************************
-## Artifact Evaluation
-
-The package for artifact evaluation will be available after the review process. 
-[Package Link](/install)
