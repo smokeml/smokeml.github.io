@@ -7,7 +7,7 @@ permalink: /data/
 
 
 
-## Time & No of Paths distribution for two phases
+## Correction 
 We made a mistake when calculating the time-distribution for the 1st and 2nd stage. 
  
 ```wrap
@@ -41,7 +41,7 @@ The package for artifact evaluation will be available after the review process.
 [Package Link](/install)
 
 
-## Memory Leak Reports
+## Report Details
 
 Thanks to [Github Educate program](https://www.awseducate.com/), we have set up an online report system to host the leak reports together with our manual classification. 
 
