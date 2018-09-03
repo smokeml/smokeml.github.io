@@ -11,4 +11,4 @@ layout: default
 [Confirmed Reports List](/list)
 
 
-[Some Data](/data)
+[Detailed Data & Artifact Evaluation](/data)

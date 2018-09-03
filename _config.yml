@@ -16,7 +16,7 @@
 title: SMOKE Memory Leak Detector
 email: smoke@smoke.io
 description: >- # this means to ignore newlines until "baseurl:"
-  This site is for data and figures of the paper SMOKE.
+  SMOKE Scalable Path-Sensitive Memory Leak Detection for Millions of Lines of Code.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb

@@ -54,4 +54,7 @@ We will make it more evident in the revised version.
 ```
 
 *********************************************
+## Artifact Evaluation
 
+The package for artifact evaluation will be available after the review process. 
+[Package Link](/install)
