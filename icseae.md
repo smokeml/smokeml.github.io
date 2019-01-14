@@ -119,6 +119,8 @@ For Infer and CSA, we need to know the **[Source Dir]** for a project **[Proj Na
 
 We use [Tmux](https://github.com/tmux/tmux) as an example to illustrate the evaluation process. To evaluate a project, we need to run five tools to collect their running time and bug reports. We manually inspect the bug reports to classify them into **False Positives** and **True Positives**. 
 
+Note that the analysis time can be slightly different than the time reported in the paper. It is affected by the configurations of the running machine and the workload of that machine when running the analysis. 
+
 ### SMOKE
 
 Commands: 
