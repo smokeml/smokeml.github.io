@@ -1,0 +1,614 @@
+Found 76 issues
+
+key-bindings.c:27: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 27 could be null and is dereferenced at line 27, column 1.
+  25.   #include "tmux.h"
+  26.   
+  27. > RB_GENERATE(key_bindings, key_binding, entry, key_bindings_cmp);
+  28.   RB_GENERATE(key_tables, key_table, entry, key_table_cmp);
+  29.   struct key_tables key_tables = RB_INITIALIZER(&key_tables);
+
+key-bindings.c:28: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 28 could be null and is dereferenced at line 28, column 1.
+  26.   
+  27.   RB_GENERATE(key_bindings, key_binding, entry, key_bindings_cmp);
+  28. > RB_GENERATE(key_tables, key_table, entry, key_table_cmp);
+  29.   struct key_tables key_tables = RB_INITIALIZER(&key_tables);
+  30.   
+
+hooks.c:32: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 32 could be null and is dereferenced at line 32, column 1.
+  30.   
+  31.   static int	hooks_cmp(struct hook *, struct hook *);
+  32. > RB_GENERATE_STATIC(hooks_tree, hook, entry, hooks_cmp);
+  33.   
+  34.   static struct hook	*hooks_find1(struct hooks *, const char *);
+
+environ.c:33: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 33 could be null and is dereferenced at line 33, column 1.
+  31.   RB_HEAD(environ, environ_entry);
+  32.   static int environ_cmp(struct environ_entry *, struct environ_entry *);
+  33. > RB_GENERATE_STATIC(environ, environ_entry, entry, environ_cmp);
+  34.   
+  35.   static int
+
+screen.c:43: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 40, column 15 is not reachable after line 43, column 2.
+  41.   	s->tabs = NULL;
+  42.   
+  43. > 	screen_reinit(s);
+  44.   }
+  45.   
+
+arguments.c:41: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 41 could be null and is dereferenced at line 41, column 1.
+  39.   
+  40.   static int	args_cmp(struct args_entry *, struct args_entry *);
+  41. > RB_GENERATE_STATIC(args_tree, args_entry, entry, args_cmp);
+  42.   
+  43.   /* Arguments tree comparison function. */
+
+cmd-rename-session.c:69: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 68, column 12 is not reachable after line 69, column 2.
+  67.   	free(s->name);
+  68.   	s->name = xstrdup(newname);
+  69. > 	RB_INSERT(sessions, &sessions, s);
+  70.   
+  71.   	server_status_session(s);
+
+cmd-display-panes.c:65: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 61, column 31 is not reachable after line 65, column 2.
+  63.   		c->identify_callback_data = xstrdup("select-pane -t '%%'");
+  64.   
+  65. > 	server_client_set_identify(c);
+  66.   
+  67.   	return (CMD_RETURN_NORMAL);
+
+cmd-display-panes.c:65: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 63, column 31 is not reachable after line 65, column 2.
+  63.   		c->identify_callback_data = xstrdup("select-pane -t '%%'");
+  64.   
+  65. > 	server_client_set_identify(c);
+  66.   
+  67.   	return (CMD_RETURN_NORMAL);
+
+key-bindings.c:62: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 58, column 16 is not reachable after line 62, column 2.
+  60.   
+  61.   	table->references = 1; /* one reference in key_tables */
+  62. > 	RB_INSERT(key_tables, &key_tables, table);
+  63.   
+  64.   	return (table);
+
+session.c:47: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 47 could be null and is dereferenced at line 47, column 1.
+  45.   static void	session_group_synchronize1(struct session *, struct session *);
+  46.   
+  47. > RB_GENERATE(sessions, session, entry, session_cmp);
+  48.   
+  49.   int
+
+paste.c:53: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 53 could be null and is dereferenced at line 53, column 1.
+  51.   static int	paste_cmp_names(const struct paste_buffer *,
+  52.   		    const struct paste_buffer *);
+  53. > RB_GENERATE_STATIC(paste_name_tree, paste_buffer, name_entry, paste_cmp_names);
+  54.   
+  55.   static int	paste_cmp_times(const struct paste_buffer *,
+
+cmd-load-buffer.c:78: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 76, column 21 is not reachable after line 78, column 3.
+  76.   			cdata->bufname = xstrdup(bufname);
+  77.   
+  78. > 		error = server_set_stdin_callback(c, cmd_load_buffer_callback,
+  79.   		    cdata, &cause);
+  80.   		if (error != 0) {
+
+cmd-load-buffer.c:78: error: MEMORY_LEAK
+  memory dynamically allocated to `cdata` by call to `xcalloc()` at line 72, column 11 is not reachable after line 78, column 3.
+  76.   			cdata->bufname = xstrdup(bufname);
+  77.   
+  78. > 		error = server_set_stdin_callback(c, cmd_load_buffer_callback,
+  79.   		    cdata, &cause);
+  80.   		if (error != 0) {
+
+session.c:55: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 55 could be null and is dereferenced at line 55, column 1.
+  53.   }
+  54.   
+  55. > RB_GENERATE(session_groups, session_group, entry, session_group_cmp);
+  56.   
+  57.   int
+
+cmd-string.c:125: error: NULL_DEREFERENCE
+  pointer `&buf` last assigned on line 62 could be null and is dereferenced by call to `cmd_string_copy()` at line 125, column 4.
+  123.   			if (t == NULL)
+  124.   				goto error;
+  125. > 			cmd_string_copy(&buf, t, &len);
+  126.   			break;
+  127.   		default:
+
+cmd-string.c:134: error: NULL_DEREFERENCE
+  pointer `buf` last assigned on line 62 could be null and is dereferenced by call to `xrealloc()` at line 134, column 10.
+  132.   			if (len >= SIZE_MAX - 2)
+  133.   				goto error;
+  134. > 			buf = xrealloc(buf, len + 1);
+  135.   			buf[len++] = ch;
+  136.   		}
+
+paste.c:57: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 57 could be null and is dereferenced at line 57, column 1.
+  55.   static int	paste_cmp_times(const struct paste_buffer *,
+  56.   		    const struct paste_buffer *);
+  57. > RB_GENERATE_STATIC(paste_time_tree, paste_buffer, time_entry, paste_cmp_times);
+  58.   
+  59.   static int
+
+arguments.c:76: error: MEMORY_LEAK
+  memory dynamically allocated to `args` by call to `xcalloc()` at line 67, column 9 is not reachable after line 76, column 4.
+  74.   			continue;
+  75.   		if (opt == '?' || strchr(template, opt) == NULL) {
+  76. > 			args_free(args);
+  77.   			return (NULL);
+  78.   		}
+
+cmd-wait-for.c:63: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 63 could be null and is dereferenced at line 63, column 1.
+  61.   
+  62.   static int wait_channel_cmp(struct wait_channel *, struct wait_channel *);
+  63. > RB_GENERATE_STATIC(wait_channels, wait_channel, entry, wait_channel_cmp);
+  64.   
+  65.   static int
+
+window.c:77: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 77 could be null and is dereferenced at line 77, column 1.
+  75.   		    u_int);
+  76.   
+  77. > RB_GENERATE(windows, window, entry, window_cmp);
+  78.   RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+  79.   RB_GENERATE(window_pane_tree, window_pane, tree_entry, window_pane_cmp);
+
+window.c:78: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 78 could be null and is dereferenced at line 78, column 1.
+  76.   
+  77.   RB_GENERATE(windows, window, entry, window_cmp);
+  78. > RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+  79.   RB_GENERATE(window_pane_tree, window_pane, tree_entry, window_pane_cmp);
+  80.   
+
+window.c:79: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 79 could be null and is dereferenced at line 79, column 1.
+  77.   RB_GENERATE(windows, window, entry, window_cmp);
+  78.   RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+  79. > RB_GENERATE(window_pane_tree, window_pane, tree_entry, window_pane_cmp);
+  80.   
+  81.   int
+
+options.c:80: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 80 could be null and is dereferenced at line 80, column 1.
+  78.   
+  79.   static int	options_cmp(struct options_entry *, struct options_entry *);
+  80. > RB_GENERATE_STATIC(options_tree, options_entry, entry, options_cmp);
+  81.   
+  82.   static int
+
+cmd-wait-for.c:97: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 89, column 13 is not reachable after line 97, column 2.
+  95.   	TAILQ_INIT(&wc->lockers);
+  96.   
+  97. > 	RB_INSERT(wait_channels, &wait_channels, wc);
+  98.   
+  99.   	log_debug("add wait channel %s", wc->name);
+
+key-bindings.c:109: error: MEMORY_LEAK
+  memory dynamically allocated to `bd` by call to `xcalloc()` at line 103, column 7 is not reachable after line 109, column 2.
+  107.   	if (repeat)
+  108.   		bd->flags |= KEY_BINDING_REPEAT;
+  109. > 	bd->cmdlist = cmdlist;
+  110.   }
+  111.   
+
+hooks.c:105: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 102, column 15 is not reachable after line 105, column 2.
+  103.   	hook->cmdlist = cmdlist;
+  104.   	hook->cmdlist->references++;
+  105. > 	RB_INSERT(hooks_tree, &hooks->tree, hook);
+  106.   }
+  107.   
+
+hooks.c:105: error: MEMORY_LEAK
+  memory dynamically allocated to `hook` by call to `xcalloc()` at line 101, column 9 is not reachable after line 105, column 2.
+  103.   	hook->cmdlist = cmdlist;
+  104.   	hook->cmdlist->references++;
+  105. > 	RB_INSERT(hooks_tree, &hooks->tree, hook);
+  106.   }
+  107.   
+
+screen-write.c:105: error: MEMORY_LEAK
+  memory dynamically allocated by call to `screen_reset_tabs()` at line 104, column 2 is not reachable after line 105, column 2.
+  103.   
+  104.   	screen_reset_tabs(s);
+  105. > 	screen_write_scrollregion(ctx, 0, screen_size_y(s) - 1);
+  106.   
+  107.   	s->mode &= ~(MODE_INSERT|MODE_KCURSOR|MODE_KKEYPAD|MODE_FOCUSON);
+
+format.c:102: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 102 could be null and is dereferenced at line 102, column 1.
+  100.   static int format_job_cmp(struct format_job *, struct format_job *);
+  101.   static RB_HEAD(format_job_tree, format_job) format_jobs = RB_INITIALIZER();
+  102. > RB_GENERATE_STATIC(format_job_tree, format_job, entry, format_job_cmp);
+  103.   
+  104.   /* Format job tree comparison function. */
+
+session.c:144: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 131, column 11 is not reachable after line 144, column 2.
+  142.   	s->hooks = hooks_create(global_hooks);
+  143.   
+  144. > 	status_update_saved(s);
+  145.   
+  146.   	s->tio = NULL;
+
+environ.c:137: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 135, column 18 is not reachable after line 137, column 3.
+  135.   		envent->name = xstrdup(name);
+  136.   		envent->value = NULL;
+  137. > 		RB_INSERT(environ, env, envent);
+  138.   	}
+  139.   }
+
+environ.c:137: error: MEMORY_LEAK
+  memory dynamically allocated to `envent` by call to `xmalloc()` at line 134, column 12 is not reachable after line 137, column 3.
+  135.   		envent->name = xstrdup(name);
+  136.   		envent->value = NULL;
+  137. > 		RB_INSERT(environ, env, envent);
+  138.   	}
+  139.   }
+
+format.c:144: error: NULL_DEREFERENCE
+  pointer `tmp` last assigned on line 144 could be null and is dereferenced at line 144, column 1.
+  142.   };
+  143.   static int format_entry_cmp(struct format_entry *, struct format_entry *);
+  144. > RB_GENERATE_STATIC(format_entry_tree, format_entry, entry, format_entry_cmp);
+  145.   
+  146.   /* Format entry tree comparison function. */
+
+cmd-queue.c:189: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xcalloc()` at line 158, column 11 is not reachable after line 189, column 9.
+  187.   		last = item;
+  188.   	}
+  189. > 	return (first);
+  190.   }
+  191.   
+
+proc.c:207: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 204, column 13 is not reachable after line 207, column 2.
+  205.   
+  206.   	tp->signalcb = signalcb;
+  207. > 	set_signals(proc_signal_cb, tp);
+  208.   
+  209.   	return (tp);
+
+cmd-find.c:180: error: NULL_DEREFERENCE
+  pointer `slist` last assigned on line 172 could be null and is dereferenced by call to `xreallocarray()` at line 180, column 11.
+  178.   		if (!session_has(s, fs->w))
+  179.   			continue;
+  180. > 		slist = xreallocarray(slist, ssize + 1, sizeof *slist);
+  181.   		slist[ssize++] = s;
+  182.   	}
+
+options.c:200: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 198, column 12 is not reachable after line 200, column 2.
+  198.   	o->name = xstrdup(name);
+  199.   
+  200. > 	RB_INSERT(options_tree, &oo->tree, o);
+  201.   	return (o);
+  202.   }
+
+cmd-string.c:238: error: NULL_DEREFERENCE
+  pointer `buf` last assigned on line 200 could be null and is dereferenced by call to `xrealloc()` at line 238, column 9.
+  236.   		if (len >= SIZE_MAX - 2)
+  237.   			goto error;
+  238. > 		buf = xrealloc(buf, len + 1);
+  239.   		buf[len++] = ch;
+  240.   	}
+
+cmd-string.c:242: error: NULL_DEREFERENCE
+  pointer `buf` last assigned on line 200 could be null and is dereferenced by call to `xrealloc()` at line 242, column 8.
+  240.   	}
+  241.   
+  242. > 	buf = xrealloc(buf, len + 1);
+  243.   	buf[len] = '\0';
+  244.   	return (buf);
+
+arguments.c:214: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 214, column 18 is not reachable after line 214, column 3.
+  212.   
+  213.   	if (value != NULL)
+  214. > 		entry->value = xstrdup(value);
+  215.   }
+  216.   
+
+arguments.c:213: error: MEMORY_LEAK
+  memory dynamically allocated to `entry` by call to `xcalloc()` at line 208, column 11 is not reachable after line 213, column 6.
+  211.   	}
+  212.   
+  213. > 	if (value != NULL)
+  214.   		entry->value = xstrdup(value);
+  215.   }
+
+utf8.c:228: error: NULL_DEREFERENCE
+  pointer `null` could be null and is dereferenced by call to `xreallocarray()` at line 228, column 8.
+  226.   	int	 len;
+  227.   
+  228. > 	buf = xreallocarray(NULL, 4, strlen(src) + 1);
+  229.   	len = utf8_strvis(buf, src, strlen(src), flag);
+  230.   
+
+utf8.c:253: error: NULL_DEREFERENCE
+  pointer `dst` last assigned on line 249 could be null and is dereferenced by call to `xreallocarray()` at line 253, column 9.
+  251.   	n = 0;
+  252.   	while (*src != '\0') {
+  253. > 		dst = xreallocarray(dst, n + 1, sizeof *dst);
+  254.   		if ((more = utf8_open(&ud, *src)) == UTF8_MORE) {
+  255.   			while (*++src != '\0' && more == UTF8_MORE)
+
+utf8.c:273: error: NULL_DEREFERENCE
+  pointer `dst` last assigned on line 249 could be null and is dereferenced by call to `xreallocarray()` at line 273, column 8.
+  271.   	}
+  272.   
+  273. > 	dst = xreallocarray(dst, n + 1, sizeof *dst);
+  274.   	dst[n] = '\0';
+  275.   	return (dst);
+
+cmd-string.c:285: error: NULL_DEREFERENCE
+  pointer `buf` last assigned on line 265 could be null and is dereferenced by call to `xrealloc()` at line 285, column 9.
+  283.   		}
+  284.   
+  285. > 		buf = xrealloc(buf, len + 1);
+  286.   		buf[len++] = ch;
+  287.   
+
+paste.c:290: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 277, column 13 is not reachable after line 290, column 2.
+  288.   		paste_free(old);
+  289.   
+  290. > 	RB_INSERT(paste_name_tree, &paste_by_name, pb);
+  291.   	RB_INSERT(paste_time_tree, &paste_by_time, pb);
+  292.   
+
+paste.c:291: error: MEMORY_LEAK
+  memory dynamically allocated to `pb` by call to `xmalloc()` at line 275, column 7 is not reachable after line 291, column 2.
+  289.   
+  290.   	RB_INSERT(paste_name_tree, &paste_by_name, pb);
+  291. > 	RB_INSERT(paste_time_tree, &paste_by_time, pb);
+  292.   
+  293.   	return (0);
+
+cmd.c:297: error: NULL_DEREFERENCE
+  pointer `buf` last assigned on line 293 could be null and is dereferenced by call to `xrealloc()` at line 297, column 9.
+  295.   	for (i = 0; i < argc; i++) {
+  296.   		len += strlen(argv[i]) + 1;
+  297. > 		buf = xrealloc(buf, len);
+  298.   
+  299.   		if (i == 0)
+
+paste.c:308: error: NULL_DEREFERENCE
+  pointer `null` could be null and is dereferenced by call to `xreallocarray()` at line 308, column 8.
+  306.   	if (len > width)
+  307.   		len = width;
+  308. > 	buf = xreallocarray(NULL, len, 4 + 4);
+  309.   
+  310.   	used = utf8_strvis(buf, pb->data, len, flags);
+
+tty-term.c:317: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 309, column 16 is not reachable after line 317, column 14.
+  315.   	}
+  316.   
+  317. > 	while ((s = strsep(&next, ":")) != NULL) {
+  318.   		if (*s == '\0')
+  319.   			continue;
+
+window.c:326: error: MEMORY_LEAK
+  memory dynamically allocated by call to `options_create()` at line 320, column 15 is not reachable after line 326, column 2.
+  324.   
+  325.   	w->id = next_window_id++;
+  326. > 	RB_INSERT(windows, &windows, w);
+  327.   
+  328.   	window_update_activity(w);
+
+utf8.c:320: error: NULL_DEREFERENCE
+  pointer `dst` last assigned on line 316 could be null and is dereferenced by call to `xreallocarray()` at line 320, column 9.
+  318.   	n = 0;
+  319.   	while (*src != '\0') {
+  320. > 		dst = xreallocarray(dst, n + 1, sizeof *dst);
+  321.   		if ((more = utf8_open(&dst[n], *src)) == UTF8_MORE) {
+  322.   			while (*++src != '\0' && more == UTF8_MORE)
+
+utf8.c:335: error: NULL_DEREFERENCE
+  pointer `dst` last assigned on line 316 could be null and is dereferenced by call to `xreallocarray()` at line 335, column 8.
+  333.   	}
+  334.   
+  335. > 	dst = xreallocarray(dst, n + 1, sizeof *dst);
+  336.   	dst[n].size = 0;
+  337.   	return (dst);
+
+utf8.c:351: error: NULL_DEREFERENCE
+  pointer `dst` last assigned on line 347 could be null and is dereferenced by call to `xreallocarray()` at line 351, column 9.
+  349.   	n = 0;
+  350.   	for(; src->size != 0; src++) {
+  351. > 		dst = xreallocarray(dst, n + src->size, 1);
+  352.   		memcpy(dst + n, src->data, src->size);
+  353.   		n += src->size;
+
+utf8.c:356: error: NULL_DEREFERENCE
+  pointer `dst` last assigned on line 347 could be null and is dereferenced by call to `xreallocarray()` at line 356, column 8.
+  354.   	}
+  355.   
+  356. > 	dst = xreallocarray(dst, n + 1, 1);
+  357.   	dst[n] = '\0';
+  358.   	return (dst);
+
+window-choose.c:380: error: NULL_DEREFERENCE
+  pointer `copy` last assigned on line 359 could be null and is dereferenced by call to `xreallocarray()` at line 380, column 12.
+  378.   				item->state &= ~TREE_EXPANDED;
+  379.   
+  380. > 				copy = xreallocarray(copy, copy_size + 1,
+  381.   				    sizeof *copy);
+  382.   				memcpy(&copy[copy_size], item, sizeof *copy);
+
+window-choose.c:393: error: NULL_DEREFERENCE
+  pointer `copy` last assigned on line 359 could be null and is dereferenced by call to `xreallocarray()` at line 393, column 11.
+  391.   			}
+  392.   		} else {
+  393. > 			copy = xreallocarray(copy, copy_size + 1, sizeof *copy);
+  394.   			memcpy(&copy[copy_size], item, sizeof *copy);
+  395.   			copy_size++;
+
+screen.c:408: error: MEMORY_LEAK
+  memory dynamically allocated by call to `grid_create()` at line 406, column 12 is not reachable after line 408, column 11.
+  406.   	s->grid = grid_create(old->sx, old->sy, old->hlimit);
+  407.   
+  408. > 	change = grid_reflow(s->grid, old, new_x);
+  409.   	if (change < s->cy)
+  410.   		s->cy -= change;
+
+window.c:412: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 411, column 12 is not reachable after line 412, column 2.
+  410.   	free(w->name);
+  411.   	w->name = xstrdup(new_name);
+  412. > 	notify_window("window-renamed", w);
+  413.   }
+  414.   
+
+session.c:598: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 595, column 13 is not reachable after line 598, column 2.
+  596.   	TAILQ_INIT(&sg->sessions);
+  597.   
+  598. > 	RB_INSERT(session_groups, &session_groups, sg);
+  599.   	return (sg);
+  600.   }
+
+format.c:699: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 697, column 12 is not reachable after line 699, column 11.
+  697.   	fe->key = xstrdup(key);
+  698.   
+  699. > 	fe_now = RB_INSERT(format_entry_tree, &ft->tree, fe);
+  700.   	if (fe_now != NULL) {
+  701.   		free(fe->key);
+
+format.c:725: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 723, column 12 is not reachable after line 725, column 11.
+  723.   	fe->key = xstrdup(key);
+  724.   
+  725. > 	fe_now = RB_INSERT(format_entry_tree, &ft->tree, fe);
+  726.   	if (fe_now != NULL) {
+  727.   		free(fe->key);
+
+format.c:736: error: MEMORY_LEAK
+  memory dynamically allocated to `fe` by call to `xmalloc()` at line 722, column 7 is not reachable after line 736, column 2.
+  734.   	fe->t = tv->tv_sec;
+  735.   
+  736. > 	fe->value = NULL;
+  737.   }
+  738.   
+
+format.c:749: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 747, column 12 is not reachable after line 749, column 11.
+  747.   	fe->key = xstrdup(key);
+  748.   
+  749. > 	fe_now = RB_INSERT(format_entry_tree, &ft->tree, fe);
+  750.   	if (fe_now != NULL) {
+  751.   		free(fe->key);
+
+format.c:760: error: MEMORY_LEAK
+  memory dynamically allocated to `fe` by call to `xmalloc()` at line 746, column 7 is not reachable after line 760, column 2.
+  758.   	fe->t = 0;
+  759.   
+  760. > 	fe->value = NULL;
+  761.   }
+  762.   
+
+input.c:783: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xcalloc()` at line 776, column 20 is not reachable after line 783, column 2.
+  781.   	ictx->since_ground = evbuffer_new();
+  782.   
+  783. > 	input_reset(wp, 0);
+  784.   }
+  785.   
+
+window.c:822: error: MEMORY_LEAK
+  memory dynamically allocated by call to `screen_set_title()` at line 820, column 3 is not reachable after line 822, column 2.
+  820.   		screen_set_title(&wp->base, host);
+  821.   
+  822. > 	input_init(wp);
+  823.   
+  824.   	return (wp);
+
+grid.c:975: error: NULL_DEREFERENCE
+  pointer `null` could be null and is dereferenced by call to `xreallocarray()` at line 975, column 22.
+  973.   
+  974.   		/* Expand destination line. */
+  975. > 		dst_gl->celldata = xreallocarray(NULL, to_copy,
+  976.   		    sizeof *dst_gl->celldata);
+  977.   		dst_gl->cellsize = dst_gl->cellused = to_copy;
+
+window-choose.c:1046: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xstrdup()` at line 1040, column 21 is not reachable after line 1046, column 2.
+  1044.   	wcd->command = cmd_template_replace(action, s->name, 1);
+  1045.   
+  1046. > 	window_choose_add(wp, wcd);
+  1047.   
+  1048.   	return (wcd);
+
+window.c:1053: error: MEMORY_LEAK
+  memory dynamically allocated by call to `grid_create()` at line 1052, column 19 is not reachable after line 1053, column 2.
+  1051.   
+  1052.   	wp->saved_grid = grid_create(sx, sy, 0);
+  1053. > 	grid_duplicate_lines(wp->saved_grid, 0, s->grid, screen_hsize(s), sy);
+  1054.   	if (cursor) {
+  1055.   		wp->saved_cx = s->cx;
+
+status.c:1417: error: NULL_DEREFERENCE
+  pointer `list` last assigned on line 1406 could be null and is dereferenced by call to `xreallocarray()` at line 1417, column 11.
+  1415.   	for (cmdent = cmd_table; *cmdent != NULL; cmdent++) {
+  1416.   		if (strncmp((*cmdent)->name, s, strlen(s)) == 0) {
+  1417. > 			list = xreallocarray(list, (*size) + 1, sizeof *list);
+  1418.   			list[(*size)++] = (*cmdent)->name;
+  1419.   		}
+
+window.c:1463: error: NULL_DEREFERENCE
+  pointer `list` last assigned on line 1437 could be null and is dereferenced by call to `xreallocarray()` at line 1463, column 10.
+  1461.   		if (!found)
+  1462.   			continue;
+  1463. > 		list = xreallocarray(list, size + 1, sizeof *list);
+  1464.   		list[size++] = next;
+  1465.   	}
+
+status.c:1494: error: NULL_DEREFERENCE
+  pointer `list` last assigned on line 1461 could be null and is dereferenced by call to `xreallocarray()` at line 1494, column 11.
+  1492.   	RB_FOREACH(s_loop, sessions, &sessions) {
+  1493.   		if (strncmp(s_loop->name, s, strlen(s)) == 0) {
+  1494. > 			list = xreallocarray(list, size + 2, sizeof *list);
+  1495.   			list[size++] = s_loop->name;
+  1496.   		}
+
+window.c:1509: error: NULL_DEREFERENCE
+  pointer `list` last assigned on line 1483 could be null and is dereferenced by call to `xreallocarray()` at line 1509, column 10.
+  1507.   		if (!found)
+  1508.   			continue;
+  1509. > 		list = xreallocarray(list, size + 1, sizeof *list);
+  1510.   		list[size++] = next;
+  1511.   	}
+
+input.c:2085: error: MEMORY_LEAK
+  memory dynamically allocated by call to `xmalloc()` at line 2074, column 8 is not reachable after line 2085, column 2.
+  2083.   		screen_write_stop(&ctx);
+  2084.   	}
+  2085. > 	paste_add(out, outlen);
+  2086.   }
+  2087.   
+
+Summary of the reports
+
+  NULL_DEREFERENCE: 38
+       MEMORY_LEAK: 38

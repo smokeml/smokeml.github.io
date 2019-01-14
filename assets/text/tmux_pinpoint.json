@@ -1,0 +1,489 @@
+{
+    "Info": [
+        "[enable-heap-alloc-failure] Detect a manual check at Line 216 @ /bigdata/fangang/cases/tmux/tmux-2.5/compat/vis.c",
+        "[enable-fd-alloc-failure] Detect a manual check at Line 43 @ /bigdata/fangang/cases/tmux/tmux-2.5/osdep-linux.c"
+    ],
+    "Target": "bench36/tmux/tmux.bc",
+    "TotalBugs": 10,
+    "TotalFunc": 1483,
+    "ExternalFuncRatio": "12.81",
+    "TotalInst": 138155,
+    "AvgInstPerFunc": "106.85",
+    "MaxInstPerFunc": 1480,
+    "FuncWithMostInst": "window_copy_command",
+    "AvgCyclomaticComplexity": "7.49",
+    "MaxCyclomaticComplexity": 151,
+    "FuncWithMaxCyclomaticComplexity": "window_copy_command",
+    "SrcFiles": [
+        "/bigdata/fangang/cases/tmux/tmux-2.5/xmalloc.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/paste.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/key-bindings.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/hooks.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/arguments.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/environ.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/format.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-queue.c"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Memory Leak",
+            "Description": "CWE-401",
+            "TotalReports": 10,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 85,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 33,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 34,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 275,
+                            "Tip": "Function <b>xmalloc</b> executes and stores the return value to <b>pb</b>",
+                            "RawTip": "Function <b>xmalloc</b> executes and stores the return value to <b>pb</b>",
+                            "Importance": 100,
+                            "FuncKey": "paste_set",
+                            "FuncName": "paste_set"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 88,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 47,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 48,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 103,
+                            "Tip": "Function <b>xcalloc</b> executes and stores the return value to <b>bd</b>",
+                            "RawTip": "Function <b>xcalloc</b> executes and stores the return value to <b>bd</b>",
+                            "Importance": 100,
+                            "FuncKey": "key_bindings_add",
+                            "FuncName": "key_bindings_add"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 47,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 48,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 101,
+                            "Tip": "Function <b>xcalloc</b> executes and stores the return value to <b>hook</b>",
+                            "RawTip": "Function <b>xcalloc</b> executes and stores the return value to <b>hook</b>",
+                            "Importance": 100,
+                            "FuncKey": "hooks_add",
+                            "FuncName": "hooks_add"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 88,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 47,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 48,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 208,
+                            "Tip": "Function <b>xcalloc</b> executes and stores the return value to <b>entry</b>",
+                            "RawTip": "Function <b>xcalloc</b> executes and stores the return value to <b>entry</b>",
+                            "Importance": 100,
+                            "FuncKey": "args_set",
+                            "FuncName": "args_set"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 213,
+                            "Tip": "Select the true branch at this point",
+                            "RawTip": "Select the true branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "args_set",
+                            "FuncName": "args_set"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 88,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 33,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 34,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 134,
+                            "Tip": "Function <b>xmalloc</b> executes and stores the return value to <b>envent</b>",
+                            "RawTip": "Function <b>xmalloc</b> executes and stores the return value to <b>envent</b>",
+                            "Importance": 100,
+                            "FuncKey": "environ_clear",
+                            "FuncName": "environ_clear"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 33,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 34,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 722,
+                            "Tip": "Function <b>xmalloc</b> executes and stores the return value to <b>fe</b>",
+                            "RawTip": "Function <b>xmalloc</b> executes and stores the return value to <b>fe</b>",
+                            "Importance": 100,
+                            "FuncKey": "format_add_tv",
+                            "FuncName": "format_add_tv"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 726,
+                            "Tip": "Select the false branch at this point (<font color=red>Memory Leak</font>)",
+                            "RawTip": "Select the false branch at this point (<font color=red>Memory Leak</font>)",
+                            "Importance": 100,
+                            "FuncKey": "format_add_tv",
+                            "FuncName": "format_add_tv"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 33,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 34,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 746,
+                            "Tip": "Function <b>xmalloc</b> executes and stores the return value to <b>fe</b>",
+                            "RawTip": "Function <b>xmalloc</b> executes and stores the return value to <b>fe</b>",
+                            "Importance": 100,
+                            "FuncKey": "format_add_cb",
+                            "FuncName": "format_add_cb"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 750,
+                            "Tip": "Select the false branch at this point (<font color=red>Memory Leak</font>)",
+                            "RawTip": "Select the false branch at this point (<font color=red>Memory Leak</font>)",
+                            "Importance": 100,
+                            "FuncKey": "format_add_cb",
+                            "FuncName": "format_add_cb"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 33,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 34,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 696,
+                            "Tip": "Function <b>xmalloc</b> executes and stores the return value to <b>fe</b>",
+                            "RawTip": "Function <b>xmalloc</b> executes and stores the return value to <b>fe</b>",
+                            "Importance": 100,
+                            "FuncKey": "format_add",
+                            "FuncName": "format_add"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 700,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "format_add",
+                            "FuncName": "format_add"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 47,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 48,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xcalloc",
+                            "FuncName": "xcalloc"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 158,
+                            "Tip": "Function <b>xcalloc</b> executes and stores the return value to <b>shared</b>",
+                            "RawTip": "Function <b>xcalloc</b> executes and stores the return value to <b>shared</b>",
+                            "Importance": 100,
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 159,
+                            "Tip": "Select the true branch at this point",
+                            "RawTip": "Select the true branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 163,
+                            "Tip": "Select the true branch at this point",
+                            "RawTip": "Select the true branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 166,
+                            "Tip": "Select the false branch at this point (<font color=red>Memory Leak</font>)",
+                            "RawTip": "Select the false branch at this point (<font color=red>Memory Leak</font>)",
+                            "Importance": 100,
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 88,
+                    "Valid": true,
+                    "Bug Type": "Memory Leak",
+                    "Bug Type Description": "CWE-401",
+                    "Importance": "high",
+                    "Classification": "performance",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 33,
+                            "Tip": "Allocate memory to <b>ptr</b>",
+                            "RawTip": "Allocate memory to <b>ptr</b>",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 34,
+                            "Tip": "Select the false branch at this point",
+                            "RawTip": "Select the false branch at this point",
+                            "Importance": 100,
+                            "FuncKey": "xmalloc",
+                            "FuncName": "xmalloc"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 116,
+                            "Tip": "Function <b>xmalloc</b> executes and stores the return value to <b>envent</b>",
+                            "RawTip": "Function <b>xmalloc</b> executes and stores the return value to <b>envent</b>",
+                            "Importance": 100,
+                            "FuncKey": "environ_set",
+                            "FuncName": "environ_set"
+                        }
+                    ],
+                    "ReportChecker": "PSA Memory Leak Checker"
+                }
+            ]
+        }
+    ]
+}

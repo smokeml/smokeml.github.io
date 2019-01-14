@@ -1,0 +1,2185 @@
+{
+    "TotalBugs": 40,
+    "SrcFiles": [
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-select-layout.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/compat/reallocarray.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/compat/recallocarray.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/names.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-show-options.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/window-copy.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/compat/imsg.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/session.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-run-shell.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/window.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-save-buffer.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/layout.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-string.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-queue.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/options.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/client.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-if-shell.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/compat/imsg-buffer.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-load-buffer.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/tty-term.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/cmd-find.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/server-client.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/paste.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/compat/fparseln.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/status.c",
+        "/home/icse2019ae/srcs/tmux/tmux-2.5/input.c"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Free null pointer",
+            "Description": "Logic error",
+            "TotalReports": 31,
+            "Reports": [
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 85,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 88,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 91,
+                            "Importance": 100,
+                            "Tip": "Value assigned to <b>oldlayout</b>"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 94,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>next</b> is 0"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 94,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>previous</b> is 0"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 102,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 113,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 115,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 120,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>layoutname</b> is equal to NULL"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 128,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>oldlayout</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 3,
+                            "Line": 111,
+                            "Importance": 100,
+                            "Tip": "Value assigned to <b>cmd</b>"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 112,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>cmd</b> is equal to NULL"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 116,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>cmd</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 4,
+                            "Line": 75,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>scope</b> is not equal to <b>OPTIONS_TABLE_NONE</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 81,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 84,
+                            "Importance": 50,
+                            "Tip": "Calling <b>cmd_show_options_one</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 125,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>cmd_show_options_exec</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 135,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>o</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 148,
+                            "Importance": 50,
+                            "Tip": "Calling <b>cmd_show_options_print</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 87,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>cmd_show_options_one</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 96,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 100,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 108,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>tmp</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 113,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 122,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>tmp</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 5,
+                            "Line": 523,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 527,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>m</b> is equal to NULL"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 530,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 807,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 807,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 809,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 813,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 819,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 821,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 827,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 833,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 839,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 845,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 852,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 859,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 893,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 895,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 895,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 899,
+                            "Importance": 0,
+                            "Tip": "Assuming pointer value field <b>searchstr</b> is null"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 906,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 909,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 909,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 917,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 919,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>data->searchstr</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 5,
+                            "Line": 523,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 527,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>m</b> is equal to NULL"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 530,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 807,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 807,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 809,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 813,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 819,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 821,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 827,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 833,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 839,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 845,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 852,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 859,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 893,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 895,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 895,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 899,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 906,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 909,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 909,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 917,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 921,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 922,
+                            "Importance": 50,
+                            "Tip": "Calling <b>window_copy_clear_marks</b>"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 1226,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>window_copy_command</b>"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 1232,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to field <b>searchmark</b>"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 922,
+                            "Importance": 50,
+                            "Tip": "Returning from <b>window_copy_clear_marks</b>"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 929,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 929,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 930,
+                            "Importance": 50,
+                            "Tip": "Calling <b>window_copy_clear_marks</b>"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 1226,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>window_copy_command</b>"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 1231,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>data->searchmark</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 6,
+                            "Line": 70,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 82,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 90,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 90,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>cmsg</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 90,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 1 times"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 92,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 93,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 104,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>i</b> is < <b>j</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 104,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 1 times"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 110,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>ifd</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 104,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>i</b> is >= <b>j</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 90,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>cmsg</b> is equal to NULL"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 119,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>ifd</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 7,
+                            "Line": 138,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>env</b> is equal to NULL"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 147,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>tio</b> is equal to NULL"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 155,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>name</b> is equal to NULL"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 159,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to field <b>name</b>"
+                        },
+                        {
+                            "File": 7,
+                            "Line": 162,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>s->name</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 8,
+                            "Line": 130,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 8,
+                            "Line": 137,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>size</b> is equal to 0"
+                        },
+                        {
+                            "File": 8,
+                            "Line": 147,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>msg</b>"
+                        },
+                        {
+                            "File": 8,
+                            "Line": 157,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>msg</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 9,
+                            "Line": 1340,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>wp</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1344,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>list</b>"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1348,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>status</b> is not equal to 1"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1348,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1354,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>next</b> is equal to TAILQ_FOREACH"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1375,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>list</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 9,
+                            "Line": 1387,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>wp</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1391,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>list</b>"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1395,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>status</b> is not equal to 2"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1401,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>next</b> is equal to TAILQ_FOREACH"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1422,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>list</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 9,
+                            "Line": 1434,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>wp</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1437,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>list</b>"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1441,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>edge</b> is not equal to 0"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1447,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>next</b> is equal to TAILQ_FOREACH"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1468,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>list</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 9,
+                            "Line": 1480,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>wp</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1483,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>list</b>"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1493,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>next</b> is equal to TAILQ_FOREACH"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 1514,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>list</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 10,
+                            "Line": 70,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 78,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>pb</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 90,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>c</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 94,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 94,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 129,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 133,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>msg</b>"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 136,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>used</b> is equal to <b>bufsize</b>"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 153,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>msg</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 12,
+                            "Line": 66,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 2 times"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 134,
+                            "Importance": 100,
+                            "Tip": "Value assigned to <b>buf</b>"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 92,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>buf</b> is equal to NULL"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 144,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>buf</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 12,
+                            "Line": 62,
+                            "Importance": 100,
+                            "Tip": "<b>buf</b> initialized here"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 66,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 2 times"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 118,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>buf</b> is equal to NULL"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 123,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>t</b> is equal to NULL"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 150,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>buf</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 12,
+                            "Line": 200,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>buf</b>"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 203,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 1 times"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 247,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>buf</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 12,
+                            "Line": 265,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>buf</b>"
+                        },
+                        {
+                            "File": 12,
+                            "Line": 316,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>buf</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 14,
+                            "Line": 301,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>separator</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 14,
+                            "Line": 304,
+                            "Importance": 100,
+                            "Tip": "Value assigned to <b>copy</b>"
+                        },
+                        {
+                            "File": 14,
+                            "Line": 305,
+                            "Importance": 0,
+                            "Tip": "Assuming pointer value is null"
+                        },
+                        {
+                            "File": 14,
+                            "Line": 316,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>copy</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 15,
+                            "Line": 112,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 119,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 123,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 125,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 127,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>start_server</b> is not equal to 0"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 133,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 137,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>lockfile</b>"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 139,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 119,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 123,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 125,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 125,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 15,
+                            "Line": 171,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>lockfile</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 16,
+                            "Line": 154,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>cmd</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 16,
+                            "Line": 157,
+                            "Importance": 100,
+                            "Tip": "Value assigned to <b>cause</b>"
+                        },
+                        {
+                            "File": 16,
+                            "Line": 158,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>cmdlist</b> is equal to NULL"
+                        },
+                        {
+                            "File": 16,
+                            "Line": 159,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>cause</b> is equal to NULL"
+                        },
+                        {
+                            "File": 16,
+                            "Line": 161,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>cause</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 18,
+                            "Line": 67,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 71,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 90,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>f</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 96,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>pdata</b>"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 98,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 107,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 117,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 119,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>pdata</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 18,
+                            "Line": 67,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 71,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 90,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>f</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 96,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to <b>pdata</b>"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 98,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 107,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 18,
+                            "Line": 127,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>pdata</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 19,
+                            "Line": 312,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>s</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 312,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>next</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 312,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 317,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 1 times"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 318,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 323,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 341,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 3 times"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 343,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 343,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 343,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 341,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 317,
+                            "Importance": 100,
+                            "Tip": "Value assigned to <b>s</b>"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 317,
+                            "Importance": 0,
+                            "Tip": "Assuming pointer value is null"
+                        },
+                        {
+                            "File": 19,
+                            "Line": 376,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>s</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 20,
+                            "Line": 172,
+                            "Importance": 100,
+                            "Tip": "<b>slist</b> initialized to a null pointer value"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 177,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>s</b> is equal to RB_FOREACH"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 192,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>slist</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 20,
+                            "Line": 951,
+                            "Importance": 100,
+                            "Tip": "<b>copy</b> initialized to a null pointer value"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 956,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 960,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>target</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 970,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 1195,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>copy</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 20,
+                            "Line": 951,
+                            "Importance": 100,
+                            "Tip": "<b>copy</b> initialized here"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 956,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 960,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>target</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 970,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 981,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 985,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 1000,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 1006,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 20,
+                            "Line": 1204,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>copy</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 21,
+                            "Line": 1349,
+                            "Importance": 100,
+                            "Tip": "Value assigned to field <b>title</b>"
+                        },
+                        {
+                            "File": 21,
+                            "Line": 1352,
+                            "Importance": 0,
+                            "Tip": "Assuming pointer value field <b>title</b> is null"
+                        },
+                        {
+                            "File": 21,
+                            "Line": 1353,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>c->title</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 22,
+                            "Line": 165,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>size</b> is not equal to 0"
+                        },
+                        {
+                            "File": 22,
+                            "Line": 171,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>pb</b> is equal to RB_FOREACH_REVERSE_SAFE"
+                        },
+                        {
+                            "File": 22,
+                            "Line": 180,
+                            "Importance": 100,
+                            "Tip": "Null pointer value stored to field <b>name</b>"
+                        },
+                        {
+                            "File": 22,
+                            "Line": 182,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>pb->name</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 23,
+                            "Line": 87,
+                            "Importance": 100,
+                            "Tip": "<b>buf</b> initialized to a null pointer value"
+                        },
+                        {
+                            "File": 23,
+                            "Line": 91,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>str</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 23,
+                            "Line": 104,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 1 times"
+                        },
+                        {
+                            "File": 23,
+                            "Line": 107,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>lineno</b> is null"
+                        },
+                        {
+                            "File": 23,
+                            "Line": 110,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 23,
+                            "Line": 113,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>s</b> is 0"
+                        },
+                        {
+                            "File": 23,
+                            "Line": 141,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 23,
+                            "Line": 142,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>buf</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 24,
+                            "Line": 1461,
+                            "Importance": 100,
+                            "Tip": "<b>list</b> initialized to a null pointer value"
+                        },
+                        {
+                            "File": 24,
+                            "Line": 1468,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 24,
+                            "Line": 1472,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 24,
+                            "Line": 1492,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>s_loop</b> is equal to RB_FOREACH"
+                        },
+                        {
+                            "File": 24,
+                            "Line": 1512,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 24,
+                            "Line": 1533,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>s_loop</b> is equal to RB_FOREACH"
+                        },
+                        {
+                            "File": 24,
+                            "Line": 1572,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>list</b>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 25,
+                            "Line": 2028,
+                            "Importance": 100,
+                            "Tip": "Value assigned to <b>copy</b>"
+                        },
+                        {
+                            "File": 25,
+                            "Line": 2029,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>s</b> is equal to NULL"
+                        },
+                        {
+                            "File": 25,
+                            "Line": 2046,
+                            "Importance": 100,
+                            "Tip": "Free a null pointer(<b>copy</b>)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Undefined allocation of 0 bytes",
+            "Description": "Unix API",
+            "TotalReports": 2,
+            "Reports": [
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.API",
+                    "DiagSteps": [
+                        {
+                            "File": 1,
+                            "Line": 34,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 34,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 35,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>nmemb</b> is <= 0"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 39,
+                            "Importance": 100,
+                            "Tip": "Call to <b>realloc</b> has an allocation size of 0 bytes"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.API",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 38,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>ptr</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 41,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 41,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 42,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>newnmemb</b> is <= 0"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 46,
+                            "Importance": 100,
+                            "Tip": "The value 0 is assigned to <b>newsize</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 48,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 68,
+                            "Importance": 100,
+                            "Tip": "Call to <b>malloc</b> has an allocation size of 0 bytes"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Unix API",
+            "Description": "Logic error",
+            "TotalReports": 2,
+            "Reports": [
+                {
+                    "Valid": true,
+                    "ReportChecker": "cplusplus.NewDeleteLeaks",
+                    "DiagSteps": [
+                        {
+                            "File": 25,
+                            "Line": 1232,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 25,
+                            "Line": 1243,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>entry</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 25,
+                            "Line": 1396,
+                            "Importance": 100,
+                            "Tip": "Null pointer argument in call to memory copy function"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "cplusplus.NewDeleteLeaks",
+                    "DiagSteps": [
+                        {
+                            "File": 25,
+                            "Line": 1232,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 25,
+                            "Line": 1243,
+                            "Importance": -50,
+                            "Tip": "Assuming <b>entry</b> is not equal to NULL"
+                        },
+                        {
+                            "File": 25,
+                            "Line": 1406,
+                            "Importance": 100,
+                            "Tip": "Null pointer argument in call to memory copy function"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Use after free",
+            "Description": "Memory Error",
+            "TotalReports": 5,
+            "Reports": [
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 6,
+                            "Line": 300,
+                            "Importance": 50,
+                            "Tip": "Calling <b>imsg_get_fd</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 269,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>imsg_clear</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 275,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 279,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 280,
+                            "Importance": 100,
+                            "Tip": "<b>Memory is released</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 300,
+                            "Importance": 50,
+                            "Tip": "Returning; memory was released"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 300,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 300,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 1 times"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 300,
+                            "Importance": 50,
+                            "Tip": "Calling <b>imsg_get_fd</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 269,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>imsg_clear</b>"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 278,
+                            "Importance": 100,
+                            "Tip": "Use of memory after it is freed (<font color=\"red\">Use after free, CWE-415, CWE-416</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 9,
+                            "Line": 718,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 718,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 2 times"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 720,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 721,
+                            "Importance": 50,
+                            "Tip": "Calling <b>window_pane_destroy</b>"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 827,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>window_destroy_panes</b>"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 832,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 843,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 846,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 851,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 860,
+                            "Importance": 100,
+                            "Tip": "<b>Memory is released</b>"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 721,
+                            "Importance": 50,
+                            "Tip": "Returning; memory was released via 1st parameter"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 720,
+                            "Importance": 100,
+                            "Tip": "Use of memory after it is freed (<font color=\"red\">Use after free, CWE-415, CWE-416</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 11,
+                            "Line": 450,
+                            "Importance": 50,
+                            "Tip": "Calling <b>layout_free_cell</b>"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 73,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>layout_free</b>"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 81,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 83,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 84,
+                            "Importance": 50,
+                            "Tip": "Calling <b>layout_free_cell</b>"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 73,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>layout_free_cell</b>"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 88,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 93,
+                            "Importance": 100,
+                            "Tip": "<b>Memory is released</b>"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 84,
+                            "Importance": 50,
+                            "Tip": "Returning; memory was released via 1st parameter"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 83,
+                            "Importance": 100,
+                            "Tip": "Use of memory after it is freed (<font color=\"red\">Use after free, CWE-415, CWE-416</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 13,
+                            "Line": 319,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 323,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 329,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 2 times"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 378,
+                            "Importance": 50,
+                            "Tip": "Calling <b>cmdq_remove</b>"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 102,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>cmdq_next</b>"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 105,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 111,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 114,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 117,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 120,
+                            "Importance": 100,
+                            "Tip": "<b>Memory is released</b>"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 378,
+                            "Importance": 50,
+                            "Tip": "Returning; memory was released via 1st parameter"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 334,
+                            "Importance": 100,
+                            "Tip": "Use of memory after it is freed (<font color=\"red\">Use after free, CWE-415, CWE-416</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Valid": true,
+                    "ReportChecker": "unix.Malloc",
+                    "DiagSteps": [
+                        {
+                            "File": 17,
+                            "Line": 220,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is true"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 220,
+                            "Importance": 100,
+                            "Tip": "Entering loop body 2 times"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 221,
+                            "Importance": 50,
+                            "Tip": "Calling <b>ibuf_dequeue</b>"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 299,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>msgbuf_clear</b>"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 302,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 304,
+                            "Importance": -50,
+                            "Tip": "Assuming the condition is false"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 308,
+                            "Importance": 50,
+                            "Tip": "Calling <b>ibuf_free</b>"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 180,
+                            "Importance": 50,
+                            "Tip": "Entered call from <b>ibuf_dequeue</b>"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 186,
+                            "Importance": 100,
+                            "Tip": "<b>Memory is released</b>"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 308,
+                            "Importance": 50,
+                            "Tip": "Returning; memory was released via 1st parameter"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 221,
+                            "Importance": 50,
+                            "Tip": "Returning; memory was released via 2nd parameter"
+                        },
+                        {
+                            "File": 17,
+                            "Line": 221,
+                            "Importance": 100,
+                            "Tip": "Use of memory after it is freed (<font color=\"red\">Use after free, CWE-415, CWE-416</font>)"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
