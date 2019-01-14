@@ -130,7 +130,6 @@ pp-smoke  -report=tmux_smoke.json bench36/tmux/tmux.bc
 
 Program output:
 ```bash
-Welcome back. Your licence will expire in 2914986 days (9999-12-31)
 === Glancing Mode : A quick glance of the project, not deep but fast ===
 
                                        Code Metrics                                 
