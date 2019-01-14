@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: ICSE 2019 Artifact Evaluation for SMOKE
 permalink: /icseae/
@@ -8,15 +8,15 @@ permalink: /icseae/
 
 
 ## Preliminaries 
-SMOKE is built on LLVM 3.6. It analyzes the bitcode files (.bc files) of software projects to check vulnerabilities. A bitcode file is a kind of intermediate representation of the source code. We have prepared all bitcode files of 29 projects for evaluation.
+SMOKE is built on LLVM 3.6. It analyzes the Bitcode files (.bc files) of software projects to check vulnerabilities. A Bitcode file is a kind of intermediate representation of the source code. We have prepared all Bitcode files of 29 projects for evaluation.
 
 ## Evaluation Host
 
 We prepared a ubuntu server for the artifact evaluation. Reviewers can access the server via ssh (the password is given in the INSTALL file):
 
-``ssh icseae@chcpu12h.cse.ust.hk``
+``ssh icse2019ae@chcpu12h.cse.ust.hk``
 
-NOTE: when running large benchmark programs (>0.5MLoC), the computation resource in the server may be used up if multiple users use the server at the same time. Thus, we recommend to run small benchmark programs to verify our idea.
+NOTE: when running large benchmark programs (>0.5MLoC), the computation resource in the server may be used up if multiple users use the server at the same time. Thus, we recommend running small benchmark programs to verify our idea.
 
 In the server, we have installed all necessary binaries for evaluation:
 
@@ -29,16 +29,16 @@ In the server, we have installed all necessary binaries for evaluation:
 
 In the home directory, there are several folders, including three groups of benchmarks and other folders:
 
-* **bench36** The LLVM bitcode (ver 3.6) files for each project (29 in total). 
-* **bench40** The LLVM bitcode (ver 4.0) files for each project (29 in total). Saber uses LLVM Bitcode files of version 4.0. 
+* **bench36** The LLVM Bitcode (ver 3.6) files for each project (29 in total). 
+* **bench40** The LLVM Bitcode (ver 4.0) files for each project (29 in total). Saber uses LLVM Bitcode files of version 4.0. 
 * **srcs** Source code of the Tmux project. CSA and Facebook Infer relies on the presence of the compilation database. 
 * **bin** Bin contains links to analyzers.
-* **pinpoint** where pinpoint package is installed
+* **pinpoint** where Pinpoint package is installed
 * **installs** where facebook infer is installed
 
 ## All results:
 
-Since we have a large set of benchmarks (29 projects) and 5 different tools to evaluate (SMOKE/Pinpoint/Saber/CSA/Infer). It takes significant large amount of time to evaluate and to collect the results. To better replicate the results within limited evaluation time,we have converted all reports to Pinpoint bug report format and made the reports and our inspection results available on the bug reporting system (Pinpoint Report System). 
+Since we have a large set of benchmarks (29 projects) and 5 different tools to evaluate (SMOKE/Pinpoint/Saber/CSA/Infer). It takes a significantly large amount of time to evaluate and to collect the results. To better replicate the results within limited evaluation time, we have converted all reports to Pinpoint bug report format and made the reports and our inspection results available on the bug reporting system (Pinpoint Report System). 
 Here is how to access them: 
 
 The address is [SMOKE/Saber/CSA/Pinpoint/Infer Reports](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report)
@@ -63,7 +63,7 @@ Note: When collecting the statistics information, we use the default "Cluster" f
 
 ## Generate BitCode files and compile_commands.json
 
-！Note: This step is not neccessary for evaluating this artifact. This step requires a project can be successfully compiled on a machine, which itself is quite complicated and time-consuming. We have prepared all the BitCode files for the subjects in the paper in both version36 and version40 for evaluation. 
+！Note: This step is not necessary for evaluating this artifact. This step requires a project can be successfully compiled on a machine, which itself is quite complicated and time-consuming. We have prepared all the BitCode files for the subjects in the paper in both version36 and version40 for evaluation. 
 
 **compile_commands.json** is the Compilation Database file. It specifies how to replay single compilations independently of the build system. Please refer to [JSON Compilation Database Format Specification](https://clang.llvm.org/docs/JSONCompilationDatabase.html)
 
@@ -78,58 +78,56 @@ pp-capture -- make -j4
 pp-capture generate a **".piggy"** folder under ~/srcs/tmux/tmux-2.5. Bitcode file can be found under ".piggy/top" and the compile_commands.json file is located at .piggy/
 
 
-## Input Paths
+## Inputs
 
 
 To evaluate SMOKE and PINPOINT, we need to know the location of the Bitcode files of version LLVM3.6. The Bitcode file for project **[Proj Name]** is located at:
 
 ```/home/icse2019ae/bench36/[Proj Name]/```
 
-To evaluate Saber, we need to know the locatin of the Bitcode files of version LLVM4.0. The Bitcode file for project **[Proj Name]** is located at:
+To evaluate Saber, we need to know the location of the Bitcode files of version LLVM4.0. The Bitcode file for project **[Proj Name]** is located at:
 
 ```/home/icse2019ae/bench40/[Proj Name]/```
 
 For Infer and CSA, we need to know the **[Source Dir]** for a project **[Proj Name]**. It is specified with the following table:
 
 
+| **[Proj Name]**     | **[Source Dir]** (a path that contains .piggy folder)                                               |
+|-------------|---------------------------------------------------------------------------------------------|
+| 164.gzip    | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/164.gzip/src</sub>            |
+| 175.vpr     | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/175.vpr/src</sub>             |
+| 176.gcc     | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/176.gcc/src</sub>             |
+| 181.mcf     | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/181.mcf/src</sub>             |
+| 186.crafty  | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/186.crafty/src</sub>          |
+| 197.parser  | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/197.parser/src</sub>          |
+| 252.eon     | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/252.eon/src</sub>             |
+| 253.perlbmk | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/253.perlbmk/src</sub>         |
+| 254.gap     | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/254.gap/src</sub>             |
+| 255.vortex  | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/255.vortex/src</sub>          |
+| 256.bzip2   | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/256.bzip2/src</sub>           |
+| 300.twolf   | <sub>/home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/300.twolf/src</sub>           |
+| bftpd       | <sub>/home/fangang/cases/researchbench/bftpd/bftpd</sub>                                         |
+| htop        | <sub>/home/fangang/cases/researchbench/htop/</sub>                                               |
+| caffe       | <sub>/home/fangang/cases/researchbench/caffe/build</sub>                                         |
+| memcached   | <sub>/home/fangang/cases/researchbench/memcached/memcached-master</sub>                          |
+| lame        | <sub>/bigdata/fangang/cases/lame/lame-3.100</sub>                                                |
+| zlib        | <sub>/home/fangang/cases/researchbench/zlib/zlib</sub>                                           |
+| tmux        | <sub>/bigdata/fangang/cases/tmux/tmux-2.5</sub>                                                  |
+| httpd       | <sub>/home/fangang/cases/researchbench/apache2/httpd-2.4.29</sub>                                |
+| openssl     | <sub>/home/fangang/cases/researchbench/openssl</sub>                                             |
+| ffmpeg      | <sub>/home/fangang/benchmarks/FFmpeg/buildssu</sub>                                              |
+| godot       | <sub>/bigdata/fangang/cases/superlarge/godot/godot</sub>                                         |
+| mysql       | <sub>/home/fangang/cases/researchbench/mysql/mysql-server-mysql-5.5.51/build</sub>               |
+| v8          | <sub>/home/fangang/cases/researchbench/v8/v8</sub>                                               |
+| skia        | <sub>/home/fangang/cases/superlarge/skia/skia-master</sub>                                       |
+| blender     | <sub>/bigdata/fangang/cases/superlarge/blender/blender</sub>                                     |
+| wine        | <sub>/bigdata/fangang/cases/superlarge/wine/wine/build</sub>                                     |
+| firefox     | <sub>/bigdata/fangang/cases/superlarge/firefox/src/mozilla-unified/obj-x86_64-pc-linux-gnu</sub> |
+
+! /home/fangang and /bigdata/fangang are accessible for user icse2019ae. 
 
 
-| **[Proj Name]**     | **[Source Dir]** (a path that contains .piggy folder)                                         |
-|-------------|---------------------------------------------------------------------------------------|
-| 164.gzip    | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/164.gzip/src            |
-| 175.vpr     | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/175.vpr/src             |
-| 176.gcc     | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/176.gcc/src             |
-| 181.mcf     | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/181.mcf/src             |
-| 186.crafty  | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/186.crafty/src          |
-| 197.parser  | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/197.parser/src          |
-| 252.eon     | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/252.eon/src             |
-| 253.perlbmk | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/253.perlbmk/src         |
-| 254.gap     | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/254.gap/src             |
-| 255.vortex  | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/255.vortex/src          |
-| 256.bzip2   | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/256.bzip2/src           |
-| 300.twolf   | /home/fangang/cases/researchbench/spec2000/benchspec/CINT2000/300.twolf/src           |
-| bftpd       | /home/fangang/cases/researchbench/bftpd/bftpd                                         |
-| htop        | /home/fangang/cases/researchbench/htop/                                               |
-| caffe       | /home/fangang/cases/researchbench/caffe/build                                         |
-| memcached   | /home/fangang/cases/researchbench/memcached/memcached-master                          |
-| lame        | /bigdata/fangang/cases/lame/lame-3.100                                                |
-| zlib        | /home/fangang/cases/researchbench/zlib/zlib                                           |
-| tmux        | /bigdata/fangang/cases/tmux/tmux-2.5                                                  |
-| httpd       | /home/fangang/cases/researchbench/apache2/httpd-2.4.29                                |
-| openssl     | /home/fangang/cases/researchbench/openssl                                             |
-| ffmpeg      | /home/fangang/benchmarks/FFmpeg/buildssu                                              |
-| godot       | /bigdata/fangang/cases/superlarge/godot/godot                                         |
-| mysql       | /home/fangang/cases/researchbench/mysql/mysql-server-mysql-5.5.51/build               |
-| v8          | /home/fangang/cases/researchbench/v8/v8                                               |
-| skia        | /home/fangang/cases/superlarge/skia/skia-master                                       |
-| blender     | /bigdata/fangang/cases/superlarge/blender/blender                                     |
-| wine        | /bigdata/fangang/cases/superlarge/wine/wine/build                                     |
-| firefox     | /bigdata/fangang/cases/superlarge/firefox/src/mozilla-unified/obj-x86_64-pc-linux-gnu |
-
-
-! /home/fangang and /bigdata/fangang are accessiable for user icse2019ae. 
-
-
+For readers who are interested of how to generate Bitcode files and compilation databases, please refer to: [PP-Capture](/producebc)
 
 *********************************************
 
@@ -222,7 +220,7 @@ The report file, (You can refer to [ReportFileFormat](/assets/pdfs/bugreport.pdf
 
 [tmux_smoke.json](/assets/text/tmux_smoke.json) 
 
-It takes several 8675778us (**8.67 seconds**) for analyzing tmux.bc. After it finished, you will see the time and memory usage on the screen. SMOKE reports 18 bugs in total and mark 12 of them as valid. Those 6 invalid reports are identified in the the **"path-sensitive verification"** phase we described in the paper. 
+It takes several 8675778us (**8.67 seconds**) for analyzing tmux.bc. After it finished, you will see the time and memory usage on the screen. SMOKE reports 18 bugs in total and marks 12 of them as valid. Those 6 invalid reports are identified in the **"path-sensitive verification"** phase we described in the paper. 
 
 In SMOKE, we treat different reports of the same root cause as one. So that we report 9 memory leak reports in the paper and 2 of them are false positives. 
 
@@ -287,7 +285,7 @@ sys     0m2.892s
 
 ```
 
-From the output screen you can find that Saber takes around **63.5** seconds for analyzing Tmux. 
+From the output screen, you can find that Saber takes around **63.5** seconds for analyzing Tmux. 
 It reports 6 memory leaks and all of them are false positives after a closely inspection. 
 
 
@@ -325,7 +323,7 @@ The report file is located in .piggy/reports/csa_report0.json, for the format of
 
 The report file: [csa_report0.json](/assets/text/csa_report0.json) 
 
-CSA reports no memory leak for tmux. (Note that there are two "Logic Error" bugs reported by the "cplusplus.NewDeleteLeaks" checker. They are clearly not memory leaks). 
+CSA reports no memory leak for Tmux. (Note that there are two "Logic Error" bugs reported by the "cplusplus.NewDeleteLeaks" checker. They are not memory leaks). 
 
 
 ### Facebook Infer
@@ -385,8 +383,8 @@ user    8m20.956s
 sys     0m9.948s
 
 ```
-Infer takes around 8m20.956s (**501.0 seconds**) for checking tmux. 
-Since it detects many bugs, the final report is located in "/home/icse2019ae/srcs/tmux/tmux-2.5/infer-out/bugs.txt". Here is the link of it:
+Infer takes around 8m20.956s (**501.0 seconds**) for checking Tmux. 
+Since it detects many bugs, the final report is located in "/home/icse2019ae/srcs/tmux/tmux-2.5/infer-out/bugs.txt". Here is the link to it:
 
 The report file: [bugs.txt](/assets/text/bugs.txt)
 
@@ -470,7 +468,7 @@ Peak Memory:    2G 952M 816KB
 Report file: [tmux_pinpoint.json](/assets/text/tmux_pinpoint.json) 
 
 Pinpoint takes 47946278us (**47.9 seconds**) for analyzing Tmux. 
-Pinpoint initially reports 10 bugs being found. Same as SMOKE, we clustered them according to their root causes, which are two (xmalloc.c:33 and xmalloc.c:47). After inspection, one bug report is true positive and another one is false positive. 
+Pinpoint initially reports 10 bugs being found. Same as SMOKE, we clustered them according to their root causes, which are two (xmalloc.c:33 and xmalloc.c:47). After inspection, one bug report is true positive, and another one is a false positive. 
 
 
 ### Summary 
