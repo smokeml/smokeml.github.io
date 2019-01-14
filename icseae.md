@@ -21,8 +21,8 @@ NOTE: when running large benchmark programs (>0.5MLoC), the computation resource
 In the server, we have installed all necessary binaries for evaluation:
 
 
-* **pp-check** the binary of SMOKE
-* **pp-check-ps** the binary of PINPOINT
+* **pp-smoke** the script to run SMOKE
+* **pp-pinpoint** the script to run PINPOINT
 * **saber** the binary of saber
 * **pp-capture** our wrapper of clang static analyzer
 * **infer** the facebook infer analyzer
@@ -63,6 +63,9 @@ Note: When collecting the statistics information, we use the default "Cluster" f
 ## Inputs
 
 
+For readers who are interested of how to generate Bitcode files and compilation databases, please refer to: [PP-Capture](/producebc)
+
+
 To evaluate SMOKE and PINPOINT, we need to know the location of the Bitcode files of version LLVM3.6. The Bitcode file for project **[Proj Name]** is located at:
 
 ```/home/icse2019ae/bench36/[Proj Name]/```
@@ -72,6 +75,8 @@ To evaluate Saber, we need to know the location of the Bitcode files of version 
 ```/home/icse2019ae/bench40/[Proj Name]/```
 
 For Infer and CSA, we need to know the **[Source Dir]** for a project **[Proj Name]**. It is specified with the following table:
+
+! /home/fangang and /bigdata/fangang are accessible for user icse2019ae. 
 
 
 | **[Proj Name]**     | **[Source Dir]** (a path that contains .piggy folder)                                               |
@@ -106,10 +111,7 @@ For Infer and CSA, we need to know the **[Source Dir]** for a project **[Proj Na
 | wine        | <sub>/bigdata/fangang/cases/superlarge/wine/wine/build</sub>                                     |
 | firefox     | <sub>/bigdata/fangang/cases/superlarge/firefox/src/mozilla-unified/obj-x86_64-pc-linux-gnu</sub> |
 
-! /home/fangang and /bigdata/fangang are accessible for user icse2019ae. 
 
-
-For readers who are interested of how to generate Bitcode files and compilation databases, please refer to: [PP-Capture](/producebc)
 
 *********************************************
 
@@ -122,13 +124,12 @@ We use [Tmux](https://github.com/tmux/tmux) as an example to illustrate the eval
 Commands: 
 
 ```bash
-pp-check  -report=tmux_smoke.json -solver-timeout=300 -psa-timeout=10 -ssu-ml -report-scoring=true -ssu-para-build=false  -execution-mode=glancing -memsafty-slicing -equiv-enable-pta=falcon bench36/tmux/tmux.bc
+pp-smoke  -report=tmux_smoke.json bench36/tmux/tmux.bc
 
 ```
 
 Program output:
 ```bash
-icse2019ae@ubuntu:~$ pp-check -solver-timeout=300 -psa-timeout=10 -ssu-ml -report-scoring=true -ssu-para-build=false  -execution-mode=glancing -memsafty-slicing -equiv-enable-pta=falcon bench36/tmux/tmux.bc -report=tmux_smoke.json
 Welcome back. Your licence will expire in 2914986 days (9999-12-31)
 === Glancing Mode : A quick glance of the project, not deep but fast ===
 
@@ -385,17 +386,12 @@ Summary of the reports
 
 Commands:
 ```bash
-pp-check-ps -ps-ml -report=tmux_pinpoint.json bench36/tmux/tmux.bc
+pp-pinpoint -report=tmux_pinpoint.json bench36/tmux/tmux.bc
 
 ```
 
 Output:
 ```bash
-icse2019ae@ubuntu:~$ pp-check-ps -ps-ml -report=tmux_pinpoint.json bench36/tmux/tmux.bc
-Pinpoint pp-check static analyzer version 1.5. Copyright by Sourcebrella, 2016 - 2018.
-===enterprise version===
-[Warning] You are running a licence free version of Pinpoint pp-check. Don't distribute it.
-
                                          Settings
 ------------------------------------------------------------------------------------------
 Execution Mode: Normal. Typical balanced settings for finding software vulnerabilities.
