@@ -21,5 +21,5 @@ pp-capture -- make -j4
 
 ```
 
-pp-capture generate a **".piggy"** folder under ~/srcs/tmux/tmux-2.5. Bitcode file can be found under ".piggy/top" and the compile_commands.json file is located at .piggy/
+pp-capture generates a **".piggy"** folder under ~/srcs/tmux/tmux-2.5. Bitcode file can be found under ".piggy/top" and the compile_commands.json file is located at .piggy/
 
