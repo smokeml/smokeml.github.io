@@ -4,7 +4,7 @@
         "[enable-fd-alloc-failure] Detect a manual check at Line 43 @ /bigdata/fangang/cases/tmux/tmux-2.5/osdep-linux.c"
     ],
     "Target": "bench36/tmux/tmux.bc",
-    "TotalBugs": 12,
+    "TotalBugs": 13,
     "TotalFunc": 1483,
     "ExternalFuncRatio": "12.81",
     "TotalInst": 138155,
@@ -18,16 +18,18 @@
         "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-set-buffer.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/xmalloc.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/compat/reallocarray.c",
-        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-run-shell.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-if-shell.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/job.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-load-buffer.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/server-fn.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/options.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-set-option.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-queue.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-run-shell.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/format.c",
         "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-new-session.c",
-        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-if-shell.c",
-        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-load-buffer.c",
-        "/bigdata/fangang/cases/tmux/tmux-2.5/server-fn.c"
+        "/bigdata/fangang/cases/tmux/tmux-2.5/cmd-new-window.c",
+        "/bigdata/fangang/cases/tmux/tmux-2.5/session.c"
     ],
     "BugTypes": [
         {
@@ -35,7 +37,7 @@
             "Description": "CWE-401",
             "Importance": "high",
             "Classification": "performance",
-            "TotalReports": 12,
+            "TotalReports": 13,
             "Reports": [
                 {
                     "Dominated": false,
@@ -166,57 +168,106 @@
                 },
                 {
                     "Dominated": false,
-                    "Score": 71,
+                    "Score": 65,
                     "Valid": true,
                     "DiagSteps": [
                         {
                             "File": 3,
-                            "Line": 102,
+                            "Line": 109,
                             "Tip": "A memory is allocated and stored to <b>cdata</b>",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
-                        },
-                        {
-                            "File": 3,
-                            "Line": 105,
-                            "Tip": "Select the false branch at this point",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
-                        },
-                        {
-                            "File": 3,
-                            "Line": 108,
-                            "Tip": "<b>cdata</b> is used in this statement",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
                         },
                         {
                             "File": 3,
                             "Line": 110,
                             "Tip": "Select the false branch at this point",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
                         },
                         {
                             "File": 3,
-                            "Line": 113,
+                            "Line": 115,
                             "Tip": "On line 110, take the False branch, program reaches here",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
                         },
                         {
                             "File": 3,
-                            "Line": 114,
+                            "Line": 116,
+                            "Tip": "Select the true branch at this point",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 117,
                             "Tip": "<b>cdata</b> is used in this statement",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
                         },
                         {
                             "File": 3,
-                            "Line": 113,
+                            "Line": 121,
+                            "Tip": "From line 117, program reaches here",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 122,
+                            "Tip": "<b>cdata</b> is used in this statement",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 122,
+                            "Tip": "Select the false branch at this point",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 125,
+                            "Tip": "On line 122, take the False branch, program reaches here",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 125,
+                            "Tip": "Select the true branch at this point",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 126,
+                            "Tip": "<b>cdata</b> is used in this statement",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 129,
+                            "Tip": "From line 126, program reaches here",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 132,
+                            "Tip": "<b>cdata</b> is used in this statement",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 131,
                             "Tip": "<b>cdata</b> is used as the 7th parameter in function <b>job_run</b>",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
                         },
                         {
                             "File": 4,
@@ -242,23 +293,94 @@
                         {
                             "File": 4,
                             "Line": 47,
-                            "Tip": "Return to the caller function <b>cmd_run_shell_exec</b>",
+                            "Tip": "Return to the caller function <b>cmd_if_shell_exec</b>",
                             "FuncKey": "job_run",
                             "FuncName": "job_run"
                         },
                         {
                             "File": 3,
-                            "Line": 113,
-                            "Tip": "<b>&amp;(cdata-&gt;cmd)</b> is not freed in function <b>job_run</b>",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
+                            "Line": 131,
+                            "Tip": "<b>cdata</b> is not freed in function <b>job_run</b>",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
                         },
                         {
                             "File": 3,
-                            "Line": 113,
-                            "Tip": "The memory pointed by <font color=red><b>cdata</b></font> in function <b>cmd_run_shell_exec</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
-                            "FuncKey": "cmd_run_shell_exec",
-                            "FuncName": "cmd_run_shell_exec"
+                            "Line": 131,
+                            "Tip": "The memory pointed by <font color=red><b>cdata</b></font> in function <b>cmd_if_shell_exec</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
+                            "FuncKey": "cmd_if_shell_exec",
+                            "FuncName": "cmd_if_shell_exec"
+                        }
+                    ],
+                    "ReportChecker": "SSU Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 85,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 5,
+                            "Line": 72,
+                            "Tip": "A memory is allocated and stored to <b>cdata</b>",
+                            "FuncKey": "cmd_load_buffer_exec",
+                            "FuncName": "cmd_load_buffer_exec"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 75,
+                            "Tip": "Select the false branch at this point",
+                            "FuncKey": "cmd_load_buffer_exec",
+                            "FuncName": "cmd_load_buffer_exec"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 79,
+                            "Tip": "On line 75, take the False branch, program reaches here",
+                            "FuncKey": "cmd_load_buffer_exec",
+                            "FuncName": "cmd_load_buffer_exec"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 78,
+                            "Tip": "<b>cdata</b> is used as the 3rd parameter in function <b>server_set_stdin_callback</b>",
+                            "FuncKey": "cmd_load_buffer_exec",
+                            "FuncName": "cmd_load_buffer_exec"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 411,
+                            "Tip": "Argument <b>cb_data</b> gets the value from its caller",
+                            "FuncKey": "server_set_stdin_callback",
+                            "FuncName": "server_set_stdin_callback"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 412,
+                            "Tip": "Select the true branch at this point",
+                            "FuncKey": "server_set_stdin_callback",
+                            "FuncName": "server_set_stdin_callback"
+                        },
+                        {
+                            "File": 6,
+                            "Line": 411,
+                            "Tip": "Return to the caller function <b>cmd_load_buffer_exec</b>",
+                            "FuncKey": "server_set_stdin_callback",
+                            "FuncName": "server_set_stdin_callback"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 78,
+                            "Tip": "<b>error</b> is not freed in function <b>server_set_stdin_callback</b>",
+                            "FuncKey": "cmd_load_buffer_exec",
+                            "FuncName": "cmd_load_buffer_exec"
+                        },
+                        {
+                            "File": 5,
+                            "Line": 78,
+                            "Tip": "The memory pointed by <font color=red><b>cdata</b></font> in function <b>cmd_load_buffer_exec</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
+                            "FuncKey": "cmd_load_buffer_exec",
+                            "FuncName": "cmd_load_buffer_exec"
                         }
                     ],
                     "ReportChecker": "SSU Memory Leak Checker"
@@ -290,63 +412,63 @@
                             "FuncName": "xstrdup"
                         },
                         {
-                            "File": 5,
+                            "File": 7,
                             "Line": 459,
                             "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>xstrdup</b>",
                             "FuncKey": "options_match",
                             "FuncName": "options_match"
                         },
                         {
-                            "File": 5,
+                            "File": 7,
                             "Line": 459,
                             "Tip": "Return to caller",
                             "FuncKey": "options_match",
                             "FuncName": "options_match"
                         },
                         {
-                            "File": 5,
+                            "File": 7,
                             "Line": 460,
                             "Tip": "<b>cp</b> is returned to <b>options_match</b>'s caller",
                             "FuncKey": "options_match",
                             "FuncName": "options_match"
                         },
                         {
-                            "File": 6,
+                            "File": 8,
                             "Line": 86,
                             "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>options_match</b>",
                             "FuncKey": "cmd_set_option_exec",
                             "FuncName": "cmd_set_option_exec"
                         },
                         {
-                            "File": 6,
+                            "File": 8,
                             "Line": 87,
                             "Tip": "Take false branch at Line 87 to make sure <b>cp</b> is not null",
                             "FuncKey": "cmd_set_option_exec",
                             "FuncName": "cmd_set_option_exec"
                         },
                         {
-                            "File": 6,
+                            "File": 8,
                             "Line": 105,
                             "Tip": "<b>cp</b> is used in this statement",
                             "FuncKey": "cmd_set_option_exec",
                             "FuncName": "cmd_set_option_exec"
                         },
                         {
-                            "File": 6,
+                            "File": 8,
                             "Line": 105,
                             "Tip": "Select the true branch at this point",
                             "FuncKey": "cmd_set_option_exec",
                             "FuncName": "cmd_set_option_exec"
                         },
                         {
-                            "File": 6,
+                            "File": 8,
                             "Line": 121,
                             "Tip": "Select the true branch at this point",
                             "FuncKey": "cmd_set_option_exec",
                             "FuncName": "cmd_set_option_exec"
                         },
                         {
-                            "File": 6,
+                            "File": 8,
                             "Line": 121,
                             "Tip": "The memory pointed by <font color=red><b>cp</b></font> in function <b>xstrdup</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
                             "FuncKey": "cmd_set_option_exec",
@@ -382,63 +504,63 @@
                             "FuncName": "xcalloc"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 158,
                             "Tip": "<b>ptr</b> is passed as the <b>this</b> pointer to function <b>xcalloc</b>",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 159,
                             "Tip": "Select the true branch at this point",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 160,
                             "Tip": "<b>ptr</b> is used in this statement",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 163,
                             "Tip": "From line 160, program reaches here",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 163,
                             "Tip": "Select the false branch at this point",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 166,
                             "Tip": "On line 163, take the False branch, program reaches here",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 166,
                             "Tip": "Select the false branch at this point",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 189,
                             "Tip": "On line 166, take the False branch, program reaches here",
                             "FuncKey": "cmdq_get_command",
                             "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 7,
+                            "File": 9,
                             "Line": 189,
                             "Tip": "The memory pointed by <font color=red><b>ptr</b></font> in function <b>xcalloc</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
                             "FuncKey": "cmdq_get_command",
@@ -449,71 +571,99 @@
                 },
                 {
                     "Dominated": false,
-                    "Score": 51,
+                    "Score": 71,
                     "Valid": true,
                     "DiagSteps": [
                         {
-                            "File": 7,
-                            "Line": 158,
-                            "Tip": "A memory is allocated and stored to <b>shared</b>",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
+                            "File": 10,
+                            "Line": 102,
+                            "Tip": "A memory is allocated and stored to <b>cdata</b>",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 7,
-                            "Line": 159,
+                            "File": 10,
+                            "Line": 105,
+                            "Tip": "Select the false branch at this point",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 108,
+                            "Tip": "<b>cdata</b> is used in this statement",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 110,
+                            "Tip": "Select the false branch at this point",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 113,
+                            "Tip": "On line 110, take the False branch, program reaches here",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 114,
+                            "Tip": "<b>cdata</b> is used in this statement",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
+                        },
+                        {
+                            "File": 10,
+                            "Line": 113,
+                            "Tip": "<b>cdata</b> is used as the 7th parameter in function <b>job_run</b>",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 47,
+                            "Tip": "Argument <b>data</b> gets the value from its caller",
+                            "FuncKey": "job_run",
+                            "FuncName": "job_run"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 54,
                             "Tip": "Select the true branch at this point",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
+                            "FuncKey": "job_run",
+                            "FuncName": "job_run"
                         },
                         {
-                            "File": 7,
-                            "Line": 160,
-                            "Tip": "<b>shared</b> is used in this statement",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
+                            "File": 4,
+                            "Line": 129,
+                            "Tip": "Return to caller",
+                            "FuncKey": "job_run",
+                            "FuncName": "job_run"
                         },
                         {
-                            "File": 7,
-                            "Line": 163,
-                            "Tip": "From line 160, program reaches here",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
+                            "File": 4,
+                            "Line": 47,
+                            "Tip": "Return to the caller function <b>cmd_run_shell_exec</b>",
+                            "FuncKey": "job_run",
+                            "FuncName": "job_run"
                         },
                         {
-                            "File": 7,
-                            "Line": 163,
-                            "Tip": "Select the false branch at this point",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
+                            "File": 10,
+                            "Line": 113,
+                            "Tip": "<b>cdata</b> is not freed in function <b>job_run</b>",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 7,
-                            "Line": 166,
-                            "Tip": "On line 163, take the False branch, program reaches here",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
-                        },
-                        {
-                            "File": 7,
-                            "Line": 166,
-                            "Tip": "Select the false branch at this point",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
-                        },
-                        {
-                            "File": 7,
-                            "Line": 189,
-                            "Tip": "On line 166, take the False branch, program reaches here",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
-                        },
-                        {
-                            "File": 7,
-                            "Line": 189,
-                            "Tip": "The memory pointed by <font color=red><b>shared</b></font> in function <b>cmdq_get_command</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
-                            "FuncKey": "cmdq_get_command",
-                            "FuncName": "cmdq_get_command"
+                            "File": 10,
+                            "Line": 113,
+                            "Tip": "The memory pointed by <font color=red><b>cdata</b></font> in function <b>cmd_run_shell_exec</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
+                            "FuncKey": "cmd_run_shell_exec",
+                            "FuncName": "cmd_run_shell_exec"
                         }
                     ],
                     "ReportChecker": "SSU Memory Leak Checker"
@@ -545,77 +695,77 @@
                             "FuncName": "xstrdup"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1099,
                             "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>xstrdup</b>",
                             "FuncKey": "format_expand",
                             "FuncName": "format_expand"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1099,
                             "Tip": "Return to caller",
                             "FuncKey": "format_expand",
                             "FuncName": "format_expand"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1197,
                             "Tip": "<b>cp</b> is returned to <b>format_expand</b>'s caller",
                             "FuncKey": "format_expand",
                             "FuncName": "format_expand"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1213,
                             "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>format_expand</b>",
                             "FuncKey": "format_single",
                             "FuncName": "format_single"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1215,
                             "Tip": "<b>cp</b> is returned to <b>format_single</b>'s caller",
                             "FuncKey": "format_single",
                             "FuncName": "format_single"
                         },
                         {
-                            "File": 9,
+                            "File": 12,
                             "Line": 151,
                             "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>format_single</b>",
                             "FuncKey": "cmd_new_session_exec",
                             "FuncName": "cmd_new_session_exec"
                         },
                         {
-                            "File": 9,
+                            "File": 12,
                             "Line": 166,
                             "Tip": "From line 152, program reaches here",
                             "FuncKey": "cmd_new_session_exec",
                             "FuncName": "cmd_new_session_exec"
                         },
                         {
-                            "File": 9,
+                            "File": 12,
                             "Line": 166,
                             "Tip": "Select the true branch at this point",
                             "FuncKey": "cmd_new_session_exec",
                             "FuncName": "cmd_new_session_exec"
                         },
                         {
-                            "File": 9,
+                            "File": 12,
                             "Line": 167,
                             "Tip": "Select the true branch at this point",
                             "FuncKey": "cmd_new_session_exec",
                             "FuncName": "cmd_new_session_exec"
                         },
                         {
-                            "File": 9,
+                            "File": 12,
                             "Line": 337,
                             "Tip": "Return to caller",
                             "FuncKey": "cmd_new_session_exec",
                             "FuncName": "cmd_new_session_exec"
                         },
                         {
-                            "File": 9,
+                            "File": 12,
                             "Line": 337,
                             "Tip": "The memory pointed by <font color=red><b>cp</b></font> in function <b>xstrdup</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
                             "FuncKey": "cmd_new_session_exec",
@@ -774,154 +924,6 @@
                 },
                 {
                     "Dominated": false,
-                    "Score": 65,
-                    "Valid": true,
-                    "DiagSteps": [
-                        {
-                            "File": 10,
-                            "Line": 109,
-                            "Tip": "A memory is allocated and stored to <b>cdata</b>",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 110,
-                            "Tip": "Select the false branch at this point",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 115,
-                            "Tip": "On line 110, take the False branch, program reaches here",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 116,
-                            "Tip": "Select the true branch at this point",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 117,
-                            "Tip": "<b>cdata</b> is used in this statement",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 121,
-                            "Tip": "From line 117, program reaches here",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 122,
-                            "Tip": "<b>cdata</b> is used in this statement",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 122,
-                            "Tip": "Select the false branch at this point",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 125,
-                            "Tip": "On line 122, take the False branch, program reaches here",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 125,
-                            "Tip": "Select the true branch at this point",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 126,
-                            "Tip": "<b>cdata</b> is used in this statement",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 129,
-                            "Tip": "From line 126, program reaches here",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 132,
-                            "Tip": "<b>cdata</b> is used in this statement",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 131,
-                            "Tip": "<b>cdata</b> is used as the 7th parameter in function <b>job_run</b>",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 4,
-                            "Line": 47,
-                            "Tip": "Argument <b>data</b> gets the value from its caller",
-                            "FuncKey": "job_run",
-                            "FuncName": "job_run"
-                        },
-                        {
-                            "File": 4,
-                            "Line": 54,
-                            "Tip": "Select the true branch at this point",
-                            "FuncKey": "job_run",
-                            "FuncName": "job_run"
-                        },
-                        {
-                            "File": 4,
-                            "Line": 129,
-                            "Tip": "Return to caller",
-                            "FuncKey": "job_run",
-                            "FuncName": "job_run"
-                        },
-                        {
-                            "File": 4,
-                            "Line": 47,
-                            "Tip": "Return to the caller function <b>cmd_if_shell_exec</b>",
-                            "FuncKey": "job_run",
-                            "FuncName": "job_run"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 131,
-                            "Tip": "<b>&amp;(cdata-&gt;file1)</b> is not freed in function <b>job_run</b>",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        },
-                        {
-                            "File": 10,
-                            "Line": 131,
-                            "Tip": "The memory pointed by <font color=red><b>cdata</b></font> in function <b>cmd_if_shell_exec</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
-                            "FuncKey": "cmd_if_shell_exec",
-                            "FuncName": "cmd_if_shell_exec"
-                        }
-                    ],
-                    "ReportChecker": "SSU Memory Leak Checker"
-                },
-                {
-                    "Dominated": false,
                     "Score": 62,
                     "Valid": true,
                     "DiagSteps": [
@@ -947,67 +949,187 @@
                             "FuncName": "xcalloc"
                         },
                         {
-                            "File": 11,
+                            "File": 5,
                             "Line": 72,
                             "Tip": "<b>ptr</b> is passed as the <b>this</b> pointer to function <b>xcalloc</b>",
                             "FuncKey": "cmd_load_buffer_exec",
                             "FuncName": "cmd_load_buffer_exec"
                         },
                         {
-                            "File": 11,
+                            "File": 5,
                             "Line": 75,
                             "Tip": "Select the false branch at this point",
                             "FuncKey": "cmd_load_buffer_exec",
                             "FuncName": "cmd_load_buffer_exec"
                         },
                         {
-                            "File": 11,
+                            "File": 5,
                             "Line": 79,
                             "Tip": "On line 75, take the False branch, program reaches here",
                             "FuncKey": "cmd_load_buffer_exec",
                             "FuncName": "cmd_load_buffer_exec"
                         },
                         {
-                            "File": 11,
+                            "File": 5,
                             "Line": 78,
                             "Tip": "<b>ptr</b> is used as the 3rd parameter in function <b>server_set_stdin_callback</b>",
                             "FuncKey": "cmd_load_buffer_exec",
                             "FuncName": "cmd_load_buffer_exec"
                         },
                         {
-                            "File": 12,
+                            "File": 6,
                             "Line": 411,
                             "Tip": "Argument <b>cb_data</b> gets the value from its caller",
                             "FuncKey": "server_set_stdin_callback",
                             "FuncName": "server_set_stdin_callback"
                         },
                         {
-                            "File": 12,
+                            "File": 6,
                             "Line": 412,
                             "Tip": "Select the true branch at this point",
                             "FuncKey": "server_set_stdin_callback",
                             "FuncName": "server_set_stdin_callback"
                         },
                         {
-                            "File": 12,
+                            "File": 6,
                             "Line": 411,
                             "Tip": "Return to the caller function <b>cmd_load_buffer_exec</b>",
                             "FuncKey": "server_set_stdin_callback",
                             "FuncName": "server_set_stdin_callback"
                         },
                         {
-                            "File": 11,
+                            "File": 5,
                             "Line": 78,
                             "Tip": "<b>error</b> is not freed in function <b>server_set_stdin_callback</b>",
                             "FuncKey": "cmd_load_buffer_exec",
                             "FuncName": "cmd_load_buffer_exec"
                         },
                         {
-                            "File": 11,
+                            "File": 5,
                             "Line": 78,
                             "Tip": "The memory pointed by <font color=red><b>ptr</b></font> in function <b>xcalloc</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
                             "FuncKey": "cmd_load_buffer_exec",
                             "FuncName": "cmd_load_buffer_exec"
+                        }
+                    ],
+                    "ReportChecker": "SSU Memory Leak Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 30,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 1,
+                            "Line": 79,
+                            "Tip": "A memory is allocated and stored to <b>cp</b>",
+                            "FuncKey": "xstrdup",
+                            "FuncName": "xstrdup"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 79,
+                            "Tip": "Take false branch at Line 79 to make sure <b>cp</b> is not null",
+                            "FuncKey": "xstrdup",
+                            "FuncName": "xstrdup"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 81,
+                            "Tip": "<b>cp</b> is returned to <b>xstrdup</b>'s caller",
+                            "FuncKey": "xstrdup",
+                            "FuncName": "xstrdup"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 1099,
+                            "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>xstrdup</b>",
+                            "FuncKey": "format_expand",
+                            "FuncName": "format_expand"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 1099,
+                            "Tip": "Return to caller",
+                            "FuncKey": "format_expand",
+                            "FuncName": "format_expand"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 1197,
+                            "Tip": "<b>cp</b> is returned to <b>format_expand</b>'s caller",
+                            "FuncKey": "format_expand",
+                            "FuncName": "format_expand"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 1213,
+                            "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>format_expand</b>",
+                            "FuncKey": "format_single",
+                            "FuncName": "format_single"
+                        },
+                        {
+                            "File": 11,
+                            "Line": 1215,
+                            "Tip": "<b>cp</b> is returned to <b>format_single</b>'s caller",
+                            "FuncKey": "format_single",
+                            "FuncName": "format_single"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 99,
+                            "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>format_single</b>",
+                            "FuncKey": "cmd_new_window_exec",
+                            "FuncName": "cmd_new_window_exec"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 57,
+                            "Tip": "From line 100, program reaches here",
+                            "FuncKey": "cmd_new_window_exec",
+                            "FuncName": "cmd_new_window_exec"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 127,
+                            "Tip": "<b>cp</b> is used as the 6th parameter in function <b>session_new</b>",
+                            "FuncKey": "cmd_new_window_exec",
+                            "FuncName": "cmd_new_window_exec"
+                        },
+                        {
+                            "File": 14,
+                            "Line": 352,
+                            "Tip": "Argument <b>cwd</b> gets the value from its caller",
+                            "FuncKey": "session_new",
+                            "FuncName": "session_new"
+                        },
+                        {
+                            "File": 14,
+                            "Line": 359,
+                            "Tip": "Select the true branch at this point",
+                            "FuncKey": "session_new",
+                            "FuncName": "session_new"
+                        },
+                        {
+                            "File": 14,
+                            "Line": 352,
+                            "Tip": "Return to the caller function <b>cmd_new_window_exec</b>",
+                            "FuncKey": "session_new",
+                            "FuncName": "session_new"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 127,
+                            "Tip": "<b>wl</b> is not freed in function <b>session_new</b>",
+                            "FuncKey": "cmd_new_window_exec",
+                            "FuncName": "cmd_new_window_exec"
+                        },
+                        {
+                            "File": 13,
+                            "Line": 127,
+                            "Tip": "The memory pointed by <font color=red><b>cp</b></font> in function <b>xstrdup</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
+                            "FuncKey": "cmd_new_window_exec",
+                            "FuncName": "cmd_new_window_exec"
                         }
                     ],
                     "ReportChecker": "SSU Memory Leak Checker"
@@ -1039,49 +1161,49 @@
                             "FuncName": "xcalloc"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 102,
                             "Tip": "<b>ptr</b> is passed as the <b>this</b> pointer to function <b>xcalloc</b>",
                             "FuncKey": "cmd_run_shell_exec",
                             "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 105,
                             "Tip": "Select the false branch at this point",
                             "FuncKey": "cmd_run_shell_exec",
                             "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 108,
                             "Tip": "<b>ptr</b> is used in this statement",
                             "FuncKey": "cmd_run_shell_exec",
                             "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 110,
                             "Tip": "Select the false branch at this point",
                             "FuncKey": "cmd_run_shell_exec",
                             "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 113,
                             "Tip": "On line 110, take the False branch, program reaches here",
                             "FuncKey": "cmd_run_shell_exec",
                             "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 114,
                             "Tip": "<b>ptr</b> is used in this statement",
                             "FuncKey": "cmd_run_shell_exec",
                             "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 113,
                             "Tip": "<b>ptr</b> is used as the 7th parameter in function <b>job_run</b>",
                             "FuncKey": "cmd_run_shell_exec",
@@ -1116,14 +1238,14 @@
                             "FuncName": "job_run"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 113,
-                            "Tip": "<b>&amp;(cdata-&gt;cmd)</b> is not freed in function <b>job_run</b>",
+                            "Tip": "<b>cdata</b> is not freed in function <b>job_run</b>",
                             "FuncKey": "cmd_run_shell_exec",
                             "FuncName": "cmd_run_shell_exec"
                         },
                         {
-                            "File": 3,
+                            "File": 10,
                             "Line": 113,
                             "Tip": "The memory pointed by <font color=red><b>ptr</b></font> in function <b>xcalloc</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
                             "FuncKey": "cmd_run_shell_exec",
@@ -1159,63 +1281,63 @@
                             "FuncName": "xstrdup"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1099,
                             "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>xstrdup</b>",
                             "FuncKey": "format_expand",
                             "FuncName": "format_expand"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1099,
                             "Tip": "Return to caller",
                             "FuncKey": "format_expand",
                             "FuncName": "format_expand"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1197,
                             "Tip": "<b>cp</b> is returned to <b>format_expand</b>'s caller",
                             "FuncKey": "format_expand",
                             "FuncName": "format_expand"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 998,
                             "Tip": "<b>cp</b> is passed as the <b>this</b> pointer to function <b>format_expand</b>",
                             "FuncKey": "format_replace",
                             "FuncName": "format_replace"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 999,
                             "Tip": "From line 998, program reaches here",
                             "FuncKey": "format_replace",
                             "FuncName": "format_replace"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 999,
                             "Tip": "Select the true branch at this point",
                             "FuncKey": "format_replace",
                             "FuncName": "format_replace"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1067,
                             "Tip": "On line 999, take the True branch, program reaches here",
                             "FuncKey": "format_replace",
                             "FuncName": "format_replace"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1068,
                             "Tip": "Return to caller",
                             "FuncKey": "format_replace",
                             "FuncName": "format_replace"
                         },
                         {
-                            "File": 8,
+                            "File": 11,
                             "Line": 1068,
                             "Tip": "The memory pointed by <font color=red><b>cp</b></font> in function <b>xstrdup</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
                             "FuncKey": "format_replace",
@@ -1226,71 +1348,71 @@
                 },
                 {
                     "Dominated": false,
-                    "Score": 85,
+                    "Score": 51,
                     "Valid": true,
                     "DiagSteps": [
                         {
-                            "File": 11,
-                            "Line": 72,
-                            "Tip": "A memory is allocated and stored to <b>cdata</b>",
-                            "FuncKey": "cmd_load_buffer_exec",
-                            "FuncName": "cmd_load_buffer_exec"
+                            "File": 9,
+                            "Line": 158,
+                            "Tip": "A memory is allocated and stored to <b>shared</b>",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 11,
-                            "Line": 75,
-                            "Tip": "Select the false branch at this point",
-                            "FuncKey": "cmd_load_buffer_exec",
-                            "FuncName": "cmd_load_buffer_exec"
-                        },
-                        {
-                            "File": 11,
-                            "Line": 79,
-                            "Tip": "On line 75, take the False branch, program reaches here",
-                            "FuncKey": "cmd_load_buffer_exec",
-                            "FuncName": "cmd_load_buffer_exec"
-                        },
-                        {
-                            "File": 11,
-                            "Line": 78,
-                            "Tip": "<b>cdata</b> is used as the 3rd parameter in function <b>server_set_stdin_callback</b>",
-                            "FuncKey": "cmd_load_buffer_exec",
-                            "FuncName": "cmd_load_buffer_exec"
-                        },
-                        {
-                            "File": 12,
-                            "Line": 411,
-                            "Tip": "Argument <b>cb_data</b> gets the value from its caller",
-                            "FuncKey": "server_set_stdin_callback",
-                            "FuncName": "server_set_stdin_callback"
-                        },
-                        {
-                            "File": 12,
-                            "Line": 412,
+                            "File": 9,
+                            "Line": 159,
                             "Tip": "Select the true branch at this point",
-                            "FuncKey": "server_set_stdin_callback",
-                            "FuncName": "server_set_stdin_callback"
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 12,
-                            "Line": 411,
-                            "Tip": "Return to the caller function <b>cmd_load_buffer_exec</b>",
-                            "FuncKey": "server_set_stdin_callback",
-                            "FuncName": "server_set_stdin_callback"
+                            "File": 9,
+                            "Line": 160,
+                            "Tip": "<b>shared</b> is used in this statement",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 11,
-                            "Line": 78,
-                            "Tip": "<b>error</b> is not freed in function <b>server_set_stdin_callback</b>",
-                            "FuncKey": "cmd_load_buffer_exec",
-                            "FuncName": "cmd_load_buffer_exec"
+                            "File": 9,
+                            "Line": 163,
+                            "Tip": "From line 160, program reaches here",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
                         },
                         {
-                            "File": 11,
-                            "Line": 78,
-                            "Tip": "The memory pointed by <font color=red><b>cdata</b></font> in function <b>cmd_load_buffer_exec</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
-                            "FuncKey": "cmd_load_buffer_exec",
-                            "FuncName": "cmd_load_buffer_exec"
+                            "File": 9,
+                            "Line": 163,
+                            "Tip": "Select the false branch at this point",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 166,
+                            "Tip": "On line 163, take the False branch, program reaches here",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 166,
+                            "Tip": "Select the false branch at this point",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 189,
+                            "Tip": "On line 166, take the False branch, program reaches here",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
+                        },
+                        {
+                            "File": 9,
+                            "Line": 189,
+                            "Tip": "The memory pointed by <font color=red><b>shared</b></font> in function <b>cmdq_get_command</b> is not freed properly after this statement (<font color=red>Memory Leak, CWE-401</font>)",
+                            "FuncKey": "cmdq_get_command",
+                            "FuncName": "cmdq_get_command"
                         }
                     ],
                     "ReportChecker": "SSU Memory Leak Checker"

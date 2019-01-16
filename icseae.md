@@ -132,9 +132,10 @@ pp-smoke  -report=tmux_smoke.json bench36/tmux/tmux.bc
 
 Program output:
 ```bash
+icse2019ae@ubuntu:~$ pp-smoke  -report=tmux_smoke.json bench36/tmux/tmux.bc
 === Glancing Mode : A quick glance of the project, not deep but fast ===
 
-                                       Code Metrics                                 
+                                       Code Metrics
 ------------------------------------------------------------------------------------------
 Total Number of Functions: 1483
          Number of Implemented Functions: 1293
@@ -146,57 +147,61 @@ Average Cyclomatic Complexity: 7.49
 Max Cyclomatic Complexity: 151 (Function: window_copy_command)
 ------------------------------------------------------------------------------------------
 
-                                    Analyzer Execution                              
+                                    Analyzer Execution
 ------------------------------------------------------------------------------------------
 Kept function size 542
-VFG_Slicing Time:       29481us
+VFG_Slicing Time:       22296us
 Code preprocessing ........Done!
 Constructing call graph ........Done!
-Before CDG Time:        1546706us
-CDG-Construction Time:  30385us
+Before CDG Time:        1303793us
+CDG-Construction Time:  23382us
 CDG-Construction Memory:        0KB
-DomTreePass Construction Time:  160266us
+DomTreePass Construction Time:  157502us
 DomTreePass Construction Memory:        0KB
 [Falcon] [################################################################################] 100%
 [SPEG] [################################################################################] 100%
-SEG-Building Time:      2257312us
-SEG-Building Memory:    243M 124KB
-SVFG-Global-Building Time:      3056249us
-SVFG-Global-Building Memory:    426M 292KB
-SVFG-Building Time:     3060018us
-SVFG-Building Memory:   426M 292KB
-PPMaster Time Time:     6911us
-SSUMemoryLeakChecker Find Candidate Traces Time Time:   33521us
-Peak Memory:    1G 770M 176KB
+SEG-Building Time:      2082713us
+SEG-Building Memory:    245M 360KB
+SVFG-Global-Building Time:      2341851us
+SVFG-Global-Building Memory:    347M 144KB
+SVFG-Building Time:     2360265us
+SVFG-Building Memory:   347M 144KB
+[PSA Checking] [################################################################################] 100%
+PPMaster Time Time:     5847us
 
 
-SSUMemoryLeakChecker Post Verification Time Time:       1217543us
-Peak Memory:    1G 770M 176KB
+SSUMemoryLeakChecker Find Candidate Traces Time Time:   25822us
+Peak Memory:    1G 565M 784KB
+
+
+SSUMemoryLeakChecker Post Verification Time Time:       1267382us
+Peak Memory:    1G 573M 236KB
 [SSU Checking] [################################################################################] 100%
 
-SSUMemoryLeakChecker Time Time:         1251419us
-Peak Memory:    1G 770M 176KB
+SSUMemoryLeakChecker Time Time:         1293500us
+Peak Memory:    1G 573M 236KB
 
-Parallel Scheduler Time Time:   1258400us
+Parallel Scheduler Time Time:   1299422us
 ------------------------------------------------------------------------------------------
 
 
-                             Bug reports summary per checker:                       
+                             Bug reports summary per checker:
 ------------------------------------------------------------------------------------------
 Checker Name                                          Total bugs valid/qualified/found
 ------------------------------------------------------------------------------------------
-SSU Memory Leak Checker                               12/12/18
+SSU Memory Leak Checker                               13/13/19
 
 
-                             Bug reports summary per bug type                       
+                             Bug reports summary per bug type
 ------------------------------------------------------------------------------------------
-Bug type                                              Number of reports             
+Bug type                                              Number of reports
 ------------------------------------------------------------------------------------------
-Memory Leak : CWE-401                                 12
+Memory Leak : CWE-401                                 13
 
 
-Total Time:     8675778us
-Peak Memory:    1G 770M 176KB
+Total Time:     7516350us
+Peak Memory:    1G 573M 236KB
+
 
 ```
 
@@ -204,7 +209,10 @@ The report file, (You can refer to [ReportFileFormat](/assets/pdfs/bugreport.pdf
 
 [tmux_smoke.json](/assets/text/tmux_smoke.json) 
 
-It takes several 8675778us (**8.67 seconds**) for analyzing tmux.bc. After it finished, you will see the time and memory usage on the screen. SMOKE reports 18 bugs in total and marks 12 of them as valid. Those 6 invalid reports are identified in the **"path-sensitive verification"** phase we described in the paper. 
+Also, you can visit the following url for a visualized bug report (Username/pass :  testtest/testtest ):
+[tmux-smoke-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5abc934afc7ce6d46bf202df)
+
+It takes several 7516350us (**7.52 seconds**) for analyzing tmux.bc. After it finished, you will see the time and memory usage on the screen. SMOKE reports 19 bugs in total and marks 13 of them as valid. Those 6 invalid reports are identified in the **"path-sensitive verification"** phase we described in the paper. 
 
 In SMOKE, we treat different reports of the same root cause as one. So that we report 9 memory leak reports in the paper and 2 of them are false positives. 
 
@@ -272,6 +280,9 @@ sys     0m2.892s
 From the output screen, you can find that Saber takes around **63.5** seconds for analyzing Tmux. 
 It reports 6 memory leaks and all of them are false positives after a closely inspection. 
 
+For a visualized bug report:
+[tmux-saber-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5a71a071fc7ce622fb0f1173)
+
 
 ### Clang Static Analyzer (CSA)
 
@@ -308,6 +319,9 @@ The report file is located in .piggy/reports/csa_report0.json, for the format of
 The report file: [csa_report0.json](/assets/text/csa_report0.json) 
 
 CSA reports no memory leak for Tmux. (Note that there are two "Logic Error" bugs reported by the "cplusplus.NewDeleteLeaks" checker. They are not memory leaks). 
+
+For a visualized report (this report contains other type of bugs, no memory leak has been found):
+[tmux-csa-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5b72c9c9fc7ce67ad38f2720)
 
 
 ### Facebook Infer
@@ -371,6 +385,8 @@ Infer takes around 8m20.956s (**501.0 seconds**) for checking Tmux.
 Since it detects many bugs, the final report is located in "/home/icse2019ae/srcs/tmux/tmux-2.5/infer-out/bugs.txt". Here is the link to it:
 
 The report file: [bugs.txt](/assets/text/bugs.txt)
+
+Visualized report: [tmux-infer-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5b73e955fc7ce67ad38f2ff5)
 
 At the end of this file, Infer reports 38 memory leaks, which becomes 18 after clustering. After close inspection, only 1 of 18 is True Positive. 
 
@@ -446,6 +462,9 @@ Peak Memory:    2G 952M 816KB
 ```
 Report file: [tmux_pinpoint.json](/assets/text/tmux_pinpoint.json) 
 
+Visualized report: [tmux-pinpoint-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5b72bf75fc7ce67ad38f21f5)
+
+
 Pinpoint takes 47946278us (**47.9 seconds**) for analyzing Tmux. 
 Pinpoint initially reports 10 bugs being found. Same as SMOKE, we clustered them according to their root causes, which are two (xmalloc.c:33 and xmalloc.c:47). After inspection, one bug report is true positive, and another one is a false positive. 
 
@@ -458,7 +477,7 @@ Performance (in seconds):
 
 | Project | SMOKE | Pinpoint | Saber | CSA   | Infer  |
 |---------|-------|----------|-------|-------|--------|
-| tmux    | 8.67  | 47.9     | 63.5  | 164.0 | 509.56 |
+| tmux    | 7.52  | 47.9     | 63.5  | 164.0 | 509.56 |
 
 
 For precision ([# False positive]/[# Total Reports]):
