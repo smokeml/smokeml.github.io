@@ -38,7 +38,7 @@ In the home directory, there are several folders, including three groups of benc
 
 ## All results:
 
-Since we have a large set of benchmarks (29 projects) and 5 different tools to evaluate (SMOKE/Pinpoint/Saber/CSA/Infer). It takes a significantly large amount of time to evaluate and to collect the results. To better replicate the results within limited evaluation time, we have converted all reports to Pinpoint bug report format and made the reports and our inspection results available on the bug reporting system (Pinpoint Report System). 
+Since we have a large set of benchmarks (29 projects) and five different tools to evaluate (SMOKE/Pinpoint/Saber/CSA/Infer). It takes a significantly large amount of time to evaluate and to collect the results. To better replicate the results within limited evaluation time, we have converted all reports to Pinpoint bug report format and made the reports and our inspection results available on the bug reporting system (Pinpoint Report System). 
 Here is how to access them: 
 
 The address is [SMOKE/Saber/CSA/Pinpoint/Infer Reports](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report)
@@ -63,7 +63,7 @@ Note: When collecting the statistics information, we use the default "Cluster" f
 ## Inputs
 
 
-For readers who are interested of how to generate Bitcode files and compilation databases, please refer to: [PP-Capture](/producebc)
+For readers who are interested in how to generate Bitcode files and compilation databases, please refer to [PP-Capture](/producebc)
 
 
 To evaluate SMOKE and PINPOINT, we need to know the location of the Bitcode files of version LLVM3.6. The Bitcode file for project **[Proj Name]** is located at:
@@ -74,7 +74,7 @@ To evaluate Saber, we need to know the location of the Bitcode files of version 
 
 ```/home/icse2019ae/bench40/[Proj Name]/```
 
-For Infer and CSA, we need to know the **[Source Dir]** for a project **[Proj Name]**. It is specified with the following table:
+For Infer and CSA, we need to know the **[Source Dir]** for a project **[Proj Name]**, which is specified in the following table:
 
 ! /home/fangang and /bigdata/fangang are accessible for user icse2019ae. 
 
@@ -119,7 +119,7 @@ For Infer and CSA, we need to know the **[Source Dir]** for a project **[Proj Na
 
 We use [Tmux](https://github.com/tmux/tmux) as an example to illustrate the evaluation process. To evaluate a project, we need to run five tools to collect their running time and bug reports. We manually inspect the bug reports to classify them into **False Positives** and **True Positives**. 
 
-Note that the analysis time can be slightly different than the time reported in the paper. It is affected by the configurations of the running machine and the workload of that machine when running the analysis. 
+Note that the analysis time can be slightly different from the time reported in the paper. It is affected by the configurations of the running machine and the workload of that machine when running the analysis. 
 
 ### SMOKE
 
@@ -212,9 +212,9 @@ The report file, (You can refer to [ReportFileFormat](/assets/pdfs/bugreport.pdf
 Also, you can visit the following url for a visualized bug report (Username/pass :  testtest/testtest ):
 [tmux-smoke-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5abc934afc7ce6d46bf202df)
 
-It takes several 7516350us (**7.52 seconds**) for analyzing tmux.bc. After it finished, you will see the time and memory usage on the screen. SMOKE reports 19 bugs in total and marks 13 of them as valid. Those 6 invalid reports are identified in the **"path-sensitive verification"** phase we described in the paper. 
+It takes several 7516350us (**7.52 seconds**) for analyzing tmux.bc. After it finished, you will see the time and memory usage on the screen. SMOKE reports 19 bugs in total and marks 13 of them as valid. Those six invalid reports are identified in the **"path-sensitive verification"** phase we described in the paper. 
 
-In SMOKE, we treat different reports of the same root cause as one. So that we report 9 memory leak reports in the paper and 2 of them are false positives. 
+In SMOKE, we treat different reports of the same root cause as one. So that we report nine memory leak reports in the paper and two of them are false positives. 
 
 ### Saber
 Commands:
@@ -278,7 +278,7 @@ sys     0m2.892s
 ```
 
 From the output screen, you can find that Saber takes around **63.5** seconds for analyzing Tmux. 
-It reports 6 memory leaks and all of them are false positives after a closely inspection. 
+It reports six memory leaks and all of them are false positives after a closely inspection. 
 
 For a visualized bug report:
 [tmux-saber-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5a71a071fc7ce622fb0f1173)
@@ -320,7 +320,7 @@ The report file: [csa_report0.json](/assets/text/csa_report0.json)
 
 CSA reports no memory leak for Tmux. (Note that there are two "Logic Error" bugs reported by the "cplusplus.NewDeleteLeaks" checker. They are not memory leaks). 
 
-For a visualized report (this report contains other type of bugs, no memory leak has been found):
+For a visualized report (this report contains other types of bugs, no memory leak has been reported):
 [tmux-csa-pinpoint-report](http://ec2-54-185-211-230.us-west-2.compute.amazonaws.com:40080/online_report/#5b72c9c9fc7ce67ad38f2720)
 
 
@@ -466,7 +466,7 @@ Visualized report: [tmux-pinpoint-pinpoint-report](http://ec2-54-185-211-230.us-
 
 
 Pinpoint takes 47946278us (**47.9 seconds**) for analyzing Tmux. 
-Pinpoint initially reports 10 bugs being found. Same as SMOKE, we clustered them according to their root causes, which are two (xmalloc.c:33 and xmalloc.c:47). After inspection, one bug report is true positive, and another one is a false positive. 
+Pinpoint initially reports ten bugs being found. Same as SMOKE, we clustered them according to their root causes, which are two (xmalloc.c:33 and xmalloc.c:47). After inspection, one bug report is true positive, and another one is a false positive. 
 
 
 ### Summary 
