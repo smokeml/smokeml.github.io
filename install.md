@@ -3,10 +3,9 @@ layout: default
 title: Install
 ---
 
+For artifact evaluation please refer to [Artifact Evaluation](/icseae): 
 
-Download the installer at [Smoke Pakcage](/reviewnote)
+The binary of SMOKE can be downloaded at [Smoke Pakcage](/assets/package/smoke_2019.tar.gz)
 
-
-
-All the pre-compiled bitcode files for the subjects. 
-[Bitcode Files](/reviewnote)
+All the pre-compiled bitcode files are located in the chcpu12h server since their size (2.0G in total). 
+[Server Info](/icseae)
